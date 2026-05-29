@@ -377,10 +377,24 @@ section{ position:relative; }
   border:1px solid rgba(var(--wood-rgb),.7); overflow:hidden;
   transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.dcard::before{ content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--gold); }
+.dcard::before{ content:""; position:absolute; inset:0 0 auto 0; height:2px; z-index:2; background:var(--gold); }
 .dcard:hover{ transform:translateY(-4px); box-shadow:0 18px 32px rgba(0,0,0,.4); border-color:rgba(var(--gold-rgb),.6); }
-.dcard .glyph{ width:46px; height:46px; margin-bottom:.85rem; color:var(--gold); transition:color .2s ease; }
-.dcard:hover .glyph{ color:var(--salmon); }
+/* Uniform photo media block at the top of every card (full width, fixed 160px, rounded). */
+.dcard-shot{
+  width:100%; height:160px; object-fit:cover; display:block;
+  border-radius:var(--radius-sm); margin-bottom:1rem;
+  background:var(--charcoal-deep);
+}
+.dcard:hover .dcard-shot{ /* keep media steady on hover; the card itself lifts */ }
+/* Micheladas has no real photo: its glyph sits in a media box of the SAME height so all 8 cards match. */
+.dcard-glyphbox{
+  width:100%; height:160px; display:grid; place-items:center;
+  border-radius:var(--radius-sm); margin-bottom:1rem;
+  background:rgba(var(--wood-rgb),.22);
+  border:1px solid rgba(var(--wood-rgb),.5);
+}
+.dcard-glyphbox .glyph{ width:58px; height:58px; margin-bottom:0; color:var(--gold); transition:color .2s ease; }
+.dcard:hover .dcard-glyphbox .glyph{ color:var(--salmon); }
 .dcard h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.15rem; color:var(--cream); }
 .dcard p{ font-size:.97rem; margin-top:.45rem; color:var(--cream-dim); }
 .menu-flag{ font-size:.8rem; color:var(--cream-dim); margin-top:1.7rem; font-style:italic; opacity:.8; }
@@ -659,13 +673,10 @@ section{ position:relative; }
 <main id="top">
 
 <!-- =========================== HERO =========================== -->
-<section class="hero" id="hero" aria-label="The Margaritas Terraza Bar storefront in Puerto Penasco at dusk" data-en-label="The Margaritas Terraza Bar storefront in Puerto Penasco at dusk" data-es-label="La fachada de Margaritas Terraza Bar en Puerto Pe&ntilde;asco al anochecer">
-  <!-- The REAL storefront photo, full-bleed. webp first, jpg fallback. -->
+<section class="hero" id="hero" aria-label="Karaoke night under the colored umbrellas at Margaritas Terraza Bar" data-en-label="Karaoke night under the colored umbrellas at Margaritas Terraza Bar" data-es-label="Noche de karaoke bajo los paraguas de colores en Margaritas Terraza Bar">
+  <!-- The REAL terrace at night: karaoke under the colored umbrellas. The storefront photo lives on as the first gallery tile. -->
   <div class="hero-photo" aria-hidden="true">
-    <picture>
-      <source srcset="assets/hero-facade.webp" type="image/webp" />
-      <img src="assets/hero-facade.jpg" width="702" height="527" alt="" fetchpriority="high" />
-    </picture>
+    <img src="assets/photos/karaoke-night.jpg" width="1400" height="788" alt="" fetchpriority="high" />
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -757,22 +768,21 @@ section{ position:relative; }
     <div class="drinks-grid">
       <!-- House Margaritas -->
       <article class="dcard reveal" data-delay="1">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M12 14 L52 14 L34 38 L34 52 L42 56 L22 56 L30 52 L30 38 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <circle cx="46" cy="15" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/margarita-rojos.jpg" width="1400" height="1400" data-en="A frozen red-berry house margarita lit up at the bar" data-es="Una margarita frozen de frutos rojos de la casa iluminada en la barra" alt="A frozen red-berry house margarita lit up at the bar" loading="lazy" />
         <h3 data-en="House Margaritas" data-es="Margaritas de la Casa">House Margaritas</h3>
         <p data-en="Frozen and on the rocks, the reason our name is on the sign. Lime classic or ask for the flavor you want. Order it by the pitcher and share."
            data-es="Frozen o en las rocas, la raz&oacute;n por la que nuestro nombre est&aacute; en el letrero. Cl&aacute;sica de lim&oacute;n o pide el sabor que quieras. P&iacute;dela por jarra y comp&aacute;rtela.">Frozen and on the rocks, the reason our name is on the sign. Lime classic or ask for the flavor you want. Order it by the pitcher and share.</p>
       </article>
 
-      <!-- Micheladas -->
+      <!-- Micheladas: no real photo exists, so the glyph sits in a tinted media box the same height as the photo cards to keep all 8 uniform. -->
       <article class="dcard reveal" data-delay="2">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M20 20 L44 20 L41 56 L23 56 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M18 20 L46 20" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-          <path d="M16 16 Q20 12 24 16 M28 16 Q32 12 36 16 M40 16 Q44 12 48 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <div class="dcard-glyphbox" aria-hidden="true">
+          <svg class="glyph" viewBox="0 0 64 64">
+            <path d="M20 20 L44 20 L41 56 L23 56 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M18 20 L46 20" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M16 16 Q20 12 24 16 M28 16 Q32 12 36 16 M40 16 Q44 12 48 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <h3 data-en="Micheladas" data-es="Micheladas">Micheladas</h3>
         <p data-en="Tall, ice cold, with a thick chili-salt rim. The Rocky Point classic, done right. The first sip explains everything."
            data-es="Altas, bien heladas, con su buen borde de chile y sal. El cl&aacute;sico de Pe&ntilde;asco, bien hecho. El primer trago lo explica todo.">Tall, ice cold, with a thick chili-salt rim. The Rocky Point classic, done right. The first sip explains everything.</p>
@@ -780,10 +790,7 @@ section{ position:relative; }
 
       <!-- Cocktails -->
       <article class="dcard reveal" data-delay="3">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M14 16 L50 16 L34 36 L34 54 M26 54 L42 54" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M40 24 C44 20 50 22 48 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/tequila-sunrise.jpg" width="1050" height="1400" data-en="A bright tequila sunrise cocktail with orange and cherry" data-es="Un coctel tequila sunrise con naranja y cereza" alt="A bright tequila sunrise cocktail with orange and cherry" loading="lazy" />
         <h3 data-en="Cocktails" data-es="C&oacute;cteles">Cocktails</h3>
         <p data-en="Whatever gets the night going. Tell the bar what you are in the mood for and we will pour it."
            data-es="Lo que ponga la noche a andar. Dile a la barra qu&eacute; se te antoja y te lo servimos.">Whatever gets the night going. Tell the bar what you are in the mood for and we will pour it.</p>
@@ -791,11 +798,7 @@ section{ position:relative; }
 
       <!-- Cold Beer & Buckets -->
       <article class="dcard reveal" data-delay="1">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M16 20 L48 20 L43 54 L21 54 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M22 28 L42 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="28" cy="40" r="2" fill="currentColor"/><circle cx="36" cy="44" r="2" fill="currentColor"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/beers.jpg" width="1320" height="975" data-en="A lineup of ice cold Mexican beers across the bar" data-es="Una fila de cervezas mexicanas bien heladas en la barra" alt="A lineup of ice cold Mexican beers across the bar" loading="lazy" />
         <h3 data-en="Cold Beer &amp; Buckets" data-es="Cerveza y Cubetas">Cold Beer &amp; Buckets</h3>
         <p data-en="Beer so cold it hurts, by the bottle or by the bucket on ice. Buckets are made for the table. Get one, then get another."
            data-es="Cerveza tan fr&iacute;a que duele, por botella o por cubeta en hielo. Las cubetas son para la mesa. Pide una, luego pide otra.">Beer so cold it hurts, by the bottle or by the bucket on ice. Buckets are made for the table. Get one, then get another.</p>
@@ -803,11 +806,7 @@ section{ position:relative; }
 
       <!-- Tacos -->
       <article class="dcard reveal" data-delay="2">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M10 40 A22 22 0 0 1 54 40 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M16 40 A16 16 0 0 1 48 40" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="24" cy="34" r="2" fill="currentColor"/><circle cx="32" cy="31" r="2" fill="currentColor"/><circle cx="40" cy="34" r="2" fill="currentColor"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/birria.jpg" width="1050" height="1400" data-en="A birria taco being dipped into rich red consomme" data-es="Un taco de birria remojado en su consom&eacute; rojo" alt="A birria taco being dipped into rich red consomme" loading="lazy" />
         <h3 data-en="Tacos" data-es="Tacos">Tacos</h3>
         <p data-en="Hot off the grill, just like they should be. Order a round for the table and keep them coming."
            data-es="Reci&eacute;n salidos de la parrilla, como deben de ser. Pide una ronda para la mesa y que no paren.">Hot off the grill, just like they should be. Order a round for the table and keep them coming.</p>
@@ -815,10 +814,7 @@ section{ position:relative; }
 
       <!-- Pizza -->
       <article class="dcard reveal" data-delay="3">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 10 L54 50 Q32 60 10 50 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <circle cx="32" cy="30" r="2.4" fill="currentColor"/><circle cx="24" cy="44" r="2.4" fill="currentColor"/><circle cx="40" cy="44" r="2.4" fill="currentColor"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/pizza.jpg" width="1320" height="1245" data-en="A fresh pizza loaded with pepperoni, sausage and peppers on a wood board" data-es="Una pizza reci&eacute;n hecha con pepperoni, salchicha y chile en tabla de madera" alt="A fresh pizza loaded with pepperoni, sausage and peppers on a wood board" loading="lazy" />
         <h3 data-en="Pizza" data-es="Pizza">Pizza</h3>
         <p data-en="Yes, pizza on the roof. Perfect for sharing between rounds, and nobody ever says no."
            data-es="S&iacute;, pizza en la terraza. Perfecta para compartir entre rondas, y nadie le dice que no.">Yes, pizza on the roof. Perfect for sharing between rounds, and nobody ever says no.</p>
@@ -826,11 +822,7 @@ section{ position:relative; }
 
       <!-- Aguachile -->
       <article class="dcard reveal" data-delay="1">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M12 30 Q32 18 52 30 L48 36 Q32 30 16 36 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M16 42 Q32 50 48 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="26" cy="27" r="1.8" fill="currentColor"/><circle cx="38" cy="27" r="1.8" fill="currentColor"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/aguachile.jpg" width="1127" height="1400" data-en="Fresh aguachile tostadas with lime and a cold Corona" data-es="Tostadas de aguachile fresco con lim&oacute;n y una Corona bien fr&iacute;a" alt="Fresh aguachile tostadas with lime and a cold Corona" loading="lazy" />
         <h3 data-en="Aguachile" data-es="Aguachile">Aguachile</h3>
         <p data-en="Fresh, citrusy, with a kick. The one that goes hand in hand with a cold beer. Bring napkins."
            data-es="Fresco, c&iacute;trico y con su piquete. El que va de la mano con una cerveza fr&iacute;a. Trae servilletas.">Fresh, citrusy, with a kick. The one that goes hand in hand with a cold beer. Bring napkins.</p>
@@ -838,11 +830,7 @@ section{ position:relative; }
 
       <!-- Seafood & Grill -->
       <article class="dcard reveal" data-delay="2">
-        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M10 32 Q26 18 42 32 Q26 46 10 32 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M42 32 L54 24 L54 40 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-          <circle cx="20" cy="30" r="1.8" fill="currentColor"/>
-        </svg>
+        <img class="dcard-shot" src="assets/photos/burger.jpg" width="1080" height="1080" data-en="A bacon cheeseburger off the grill with a pile of fries and cold beers" data-es="Una hamburguesa con tocino de la parrilla, con papas y cervezas bien fr&iacute;as" alt="A bacon cheeseburger off the grill with a pile of fries and cold beers" loading="lazy" />
         <h3 data-en="Seafood &amp; Grill" data-es="Mariscos y Parrilla">Seafood &amp; Grill</h3>
         <p data-en="Fresh seafood and food off the grill, made for sharing with the whole crew. We are on the coast, after all."
            data-es="Mariscos frescos y comida a la parrilla, para compartir con toda la banda. Al fin que estamos en la costa.">Fresh seafood and food off the grill, made for sharing with the whole crew. We are on the coast, after all.</p>
@@ -958,56 +946,24 @@ section{ position:relative; }
         <figcaption class="t-cap" data-en="The stairs up to the roof" data-es="Las escaleras a la terraza">The stairs up to the roof</figcaption>
       </figure>
       <figure class="tile real reveal" data-delay="3">
-        <img src="assets/photos/pizza.jpg" width="1320" height="1245" data-en="A fresh pizza loaded with pepperoni, sausage and peppers on a wood board" data-es="Una pizza reci&eacute;n hecha con pepperoni, salchicha y chile en tabla de madera" alt="A fresh pizza loaded with pepperoni, sausage and peppers on a wood board" loading="lazy" />
-        <figcaption class="t-cap" data-en="Pizza on the roof" data-es="Pizza en la terraza">Pizza on the roof</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="1">
-        <img src="assets/photos/aguachile.jpg" width="1127" height="1400" data-en="Fresh aguachile tostadas with lime and a cold Corona" data-es="Tostadas de aguachile fresco con lim&oacute;n y una Corona bien fr&iacute;a" alt="Fresh aguachile tostadas with lime and a cold Corona" loading="lazy" />
-        <figcaption class="t-cap" data-en="Aguachile by the sea" data-es="Aguachile junto al mar">Aguachile by the sea</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="2">
-        <img src="assets/photos/beers.jpg" width="1320" height="975" data-en="A lineup of ice cold Mexican beers across the bar" data-es="Una fila de cervezas mexicanas bien heladas en la barra" alt="A lineup of ice cold Mexican beers across the bar" loading="lazy" />
-        <figcaption class="t-cap" data-en="Cold ones, your pick" data-es="Bien fr&iacute;as, t&uacute; escoges">Cold ones, your pick</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="3">
-        <img src="assets/photos/birria.jpg" width="1050" height="1400" data-en="A birria taco being dipped into rich red consomme" data-es="Un taco de birria remojado en su consom&eacute; rojo" alt="A birria taco being dipped into rich red consomme" loading="lazy" />
-        <figcaption class="t-cap" data-en="Birria, with its consomme" data-es="Birria, con su consom&eacute;">Birria, with its consomme</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="1">
-        <img src="assets/photos/burger.jpg" width="1080" height="1080" data-en="A bacon cheeseburger with a pile of fries and cold beers" data-es="Una hamburguesa con tocino, papas y cervezas bien fr&iacute;as" alt="A bacon cheeseburger with a pile of fries and cold beers" loading="lazy" />
-        <figcaption class="t-cap" data-en="Burger and fries, late night" data-es="Hamburguesa y papas, de noche">Burger and fries, late night</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="2">
-        <img src="assets/photos/wings.jpg" width="1080" height="1080" data-en="Boneless and traditional wings with celery and carrots" data-es="Alitas boneless y tradicionales con apio y zanahoria" alt="Boneless and traditional wings with celery and carrots" loading="lazy" />
-        <figcaption class="t-cap" data-en="Wings and boneless" data-es="Alitas y boneless">Wings and boneless</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="3">
-        <img src="assets/photos/burrito.jpg" width="1050" height="1400" data-en="A hefty burrito stuffed with meat, cut open to show the filling" data-es="Un burrito bien servido relleno de carne, abierto a la mitad" alt="A hefty burrito stuffed with meat, cut open to show the filling" loading="lazy" />
-        <figcaption class="t-cap" data-en="Loaded burritos" data-es="Burritos bien servidos">Loaded burritos</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="1">
-        <img src="assets/photos/karaoke-night.jpg" width="1400" height="788" data-en="Karaoke night on the umbrella-covered terrace with the crowd and string lights" data-es="Noche de karaoke en la terraza de paraguas con la gente y las lucecitas" alt="Karaoke night on the umbrella-covered terrace with the crowd and string lights" loading="lazy" />
-        <figcaption class="t-cap" data-en="Karaoke under the umbrellas" data-es="Karaoke bajo los paraguas">Karaoke under the umbrellas</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="2">
         <img src="assets/photos/pool-crowd.jpg" width="1400" height="1400" data-en="Friends gathered around the pool table" data-es="Amigos reunidos alrededor de la mesa de billar" alt="Friends gathered around the pool table" loading="lazy" />
         <figcaption class="t-cap" data-en="A round at the pool table" data-es="Una partida en el billar">A round at the pool table</figcaption>
       </figure>
-      <figure class="tile real reveal" data-delay="3">
-        <img src="assets/photos/margarita-rojos.jpg" width="1400" height="1400" data-en="A frozen red-berry margarita lit up at the bar" data-es="Una margarita frozen de frutos rojos iluminada en la barra" alt="A frozen red-berry margarita lit up at the bar" loading="lazy" />
-        <figcaption class="t-cap" data-en="Frutos rojos margarita" data-es="Margarita de frutos rojos">Frutos rojos margarita</figcaption>
-      </figure>
       <figure class="tile real reveal" data-delay="1">
-        <img src="assets/photos/tequila-sunrise.jpg" width="1050" height="1400" data-en="A bright tequila sunrise cocktail with orange and cherry" data-es="Un coctel tequila sunrise con naranja y cereza" alt="A bright tequila sunrise cocktail with orange and cherry" loading="lazy" />
-        <figcaption class="t-cap" data-en="Cocktails, made your way" data-es="Cocteles, a tu gusto">Cocktails, made your way</figcaption>
-      </figure>
-      <figure class="tile real reveal" data-delay="2">
         <img src="assets/photos/pool-room.jpg" width="1400" height="1050" data-en="The billiards room with a pool table, darts, and a TV for the game" data-es="El sal&oacute;n de billar con mesa, dardos y pantalla para el partido" alt="The billiards room with a pool table, darts, and a TV for the game" loading="lazy" />
         <figcaption class="t-cap" data-en="Pool, darts, and the game" data-es="Billar, dardos y el partido">Pool, darts, and the game</figcaption>
       </figure>
-      <figure class="tile real reveal" data-delay="3">
+      <figure class="tile real reveal" data-delay="2">
         <img src="assets/photos/karaoke-mic.jpg" width="1050" height="1400" data-en="The karaoke mic and screen ready under the stage lights" data-es="El micr&oacute;fono de karaoke y la pantalla listos bajo las luces" alt="The karaoke mic and screen ready under the stage lights" loading="lazy" />
         <figcaption class="t-cap" data-en="Grab the mic" data-es="Agarra el micr&oacute;fono">Grab the mic</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="3">
+        <img src="assets/photos/wings.jpg" width="1080" height="1080" data-en="Boneless and traditional wings with celery and carrots" data-es="Alitas boneless y tradicionales con apio y zanahoria" alt="Boneless and traditional wings with celery and carrots" loading="lazy" />
+        <figcaption class="t-cap" data-en="Wings and boneless" data-es="Alitas y boneless">Wings and boneless</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="1">
+        <img src="assets/photos/burrito.jpg" width="1050" height="1400" data-en="A hefty burrito stuffed with meat, cut open to show the filling" data-es="Un burrito bien servido relleno de carne, abierto a la mitad" alt="A hefty burrito stuffed with meat, cut open to show the filling" loading="lazy" />
+        <figcaption class="t-cap" data-en="Loaded burritos" data-es="Burritos bien servidos">Loaded burritos</figcaption>
       </figure>
     </div>
   </div>
