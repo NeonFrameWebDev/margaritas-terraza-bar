@@ -6,69 +6,85 @@
 
 <!--
   Margaritas Terraza Bar, Puerto Penasco, Sonora, MX
-  Spec-site REDO build by NeonFrame Web Design (Forge).
-  Festive open-air rooftop cantina. Warm cream base, multicolored umbrella
-  canopy hero, warm string lights. Photo-light by design (no real photos yet).
-  Single static file. No build step. Pure HTML/CSS/vanilla JS.
-  House rules: no em-dashes, no stock, no AI, real photos only.
+  Spec-site REVISION 2 build by NeonFrame Web Design (Forge).
+
+  R2 is a deliberate pivot off the rejected R1 cream/rainbow build. The owner said
+  "do not make it look like rainbows" and sent the REAL storefront photo plus the
+  REAL Aztec logo, asking that the logo be part of the theme. So this build lets the
+  real building BE the brand: a dark charcoal base (the facade), warm wood, salmon-pink
+  signage (their real sign lettering), and gold sunbursts (from beside the emblem).
+
+  The real assets carry the look:
+    - assets/hero-facade.jpg / .webp (702x527): the real storefront, used full-bleed as
+      the hero (tuned charcoal dusk overlay) and as the first Gallery tile.
+    - assets/logo.png (99x100): the real Aztec emblem on a dark background, used small
+      (max ~88px) in nav, hero, and footer, on matching dark or in a dark round chip.
+
+  The recurring theme element is a clean recreated GOLD SVG SUNBURST (the simple sun from
+  beside the emblem), used for kickers, dividers, bullets, the loader, and the scroll cue.
+  The Aztec FIGURE is never redrawn as vector; it stays the raster logo.png only.
+
+  Single static file. No build step. Pure HTML / CSS / vanilla JS.
+  House rules: no em-dashes anywhere, ranges as "12:00 to 03:00", real assets only,
+  nothing from assets/_rejected ships.
 -->
 
-<title>Margaritas Terraza Bar | Rooftop Cantina in Puerto Penasco, Rocky Point</title>
-<meta name="description" content="A rooftop cantina under a ceiling of colored umbrellas in Rocky Point. Micheladas, frozen margaritas, karaoke, and music, open late til 3 AM. Una terraza llena de paraguas de colores en Puerto Penasco." />
+<title>Margaritas Terraza Bar | Rooftop cantina in Puerto Penasco</title>
+<meta name="description" content="The rooftop cantina in the middle of Rocky Point. Micheladas, frozen margaritas, karaoke, music, and a sky full of umbrellas, open late til 3 AM. La terraza en pleno Puerto Penasco, abierta hasta tarde." />
 
-<!-- Share surface. og:url points to the GitHub Pages preview during the spec phase; Bolt repoints to the customer domain at delivery. -->
+<!-- Share surface. og:url points to the GitHub Pages preview during the spec phase; Bolt repoints to the customer domain at delivery. og:image is the real facade photo. -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Margaritas Terraza Bar | Rooftop Cantina in Rocky Point" />
-<meta property="og:description" content="A ceiling full of colored umbrellas, string lights, karaoke, and frozen margaritas in Puerto Penasco. Open late til 3 AM." />
+<meta property="og:title" content="Margaritas Terraza Bar | Rooftop cantina in Puerto Penasco" />
+<meta property="og:description" content="A dark rooftop cantina at dusk with salmon signage, string lights, micheladas, and frozen margaritas in Rocky Point. Open late til 3 AM." />
+<meta property="og:image" content="assets/hero-facade.jpg" />
 <meta property="og:url" content="https://neonframewebdev.github.io/margaritas-terraza-bar/" />
-<!-- og:image owner-confirm: add a real hero photo when the owner shares a camera roll. Photo-light build has none yet. -->
-<meta name="theme-color" content="#FBEFD6" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Margaritas Terraza Bar | Rooftop cantina in Puerto Penasco" />
+<meta name="twitter:description" content="A dark rooftop cantina at dusk with salmon signage and string lights in Rocky Point. Open late til 3 AM." />
+<meta name="twitter:image" content="assets/hero-facade.jpg" />
+<meta name="theme-color" content="#1A1D22" />
 
-<!-- SVG favicon generated from the placeholder roundel token (cantina-red circle, gold ring, "MT"). Replace with the real roundel later. -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23B81E2A'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23E8B04B' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='Verdana,sans-serif' font-size='26' font-weight='700' fill='%23F6EFE2' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E" />
+<!-- SVG favicon built from the gold sunburst motif (the raster logo is too detailed at favicon size). Gold sunburst on a near-black rounded square. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231A1D22'/%3E%3Cg fill='%23E7B24A'%3E%3Ccircle cx='16' cy='16' r='3.4'/%3E%3Cg%3E%3Cpath d='M16 3 L17.4 8 L14.6 8 Z'/%3E%3Cpath d='M16 29 L17.4 24 L14.6 24 Z'/%3E%3Cpath d='M3 16 L8 14.6 L8 17.4 Z'/%3E%3Cpath d='M29 16 L24 14.6 L24 17.4 Z'/%3E%3Cpath d='M6.8 6.8 L11 9.6 L9.6 11 Z'/%3E%3Cpath d='M25.2 25.2 L21 22.4 L22.4 21 Z'/%3E%3Cpath d='M25.2 6.8 L21 9.6 L22.4 11 Z'/%3E%3Cpath d='M6.8 25.2 L11 22.4 L9.6 21 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
 
-<!-- Exact CSS2 fonts link from the design spec: Yatra One + Fredoka + Mulish -->
+<!-- Exact CSS2 fonts link from the R2 design spec: Fredoka (wordmark/headings) + Mulish (body). Yatra One dropped. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
 /* =========================================================================
-   TOKENS (names exactly as in the brand brief / design spec)
+   TOKENS (the R2 dark real-brand palette, pulled from the real photo)
+   Charcoal + wood do the structural work; salmon is the one signature color;
+   gold is the accent; olive only as tiny figure-green touches. NO rainbow.
    ========================================================================= */
 :root{
-  /* Umbrella-canopy spectrum (the personality) */
-  --umbrella-red:        #E23B33;
-  --umbrella-orange:     #F08A1D;
-  --umbrella-yellow:     #F7C61E;
-  --umbrella-green:      #3FA45B;
-  --umbrella-teal:       #2A86C4;
-  --umbrella-deep-blue:  #264C9B;
+  /* Base + structure (the facade itself) */
+  --charcoal:        #2E3239;   /* dominant page base, the building */
+  --charcoal-deep:   #1A1D22;   /* near-black sign panels, nav, footer, cards */
+  --wood:            #7C5B4C;   /* warm beams/slats, structural warmth, borders */
+  --wood-deep:       #46332A;   /* deep wood, shadow side, alt panel */
 
-  /* Lights, brand, atmosphere (the through-line) */
-  --string-gold:   #FFCE6A;   /* warm bulb glow, connective tissue */
-  --cantina-red:   #B81E2A;   /* PRIMARY brand, all primary CTAs */
-  --logo-gold:     #E8B04B;   /* filigree accent, dividers, hover */
-  --neon-open:     #FF5A7A;   /* used ONCE, on the OPEN sign only */
+  /* Brand */
+  --salmon:          #EB859C;   /* PRIMARY brand, the sign lettering */
+  --salmon-deep:     #E0708A;   /* depth + hover for salmon */
+  --gold:            #E7B24A;   /* the sunbursts, accents, dividers, kickers, bullets */
+  --olive:           #6F8A4E;   /* the figure green, TERTIARY, tiny touches only */
 
-  /* Drinks (supporting accents in the menu only) */
-  --chili-rim:     #C8401F;
-  --chili-rim-2:   #9E2B1E;
-  --lime-cream:    #D7E27A;
+  /* Text */
+  --cream:           #F3E9DD;   /* primary text on dark */
+  --cream-dim:       #C9BEB2;   /* secondary text, captions, muted labels */
 
-  /* Base + neutrals */
-  --cream:         #FBEFD6;   /* dominant page base */
-  --cream-2:       #F6E4C4;   /* alternating band tint */
-  --dusk:          #14233A;   /* the single dark Nights band */
-  --dusk-2:        #1B2E4A;   /* dusk gradient partner */
-  --ink:           #241B14;   /* charcoal body text on cream */
-  --cream-text:    #F6EFE2;   /* off-white text on the dusk band */
+  /* convenience rgba bases */
+  --gold-rgb:        231,178,74;
+  --salmon-rgb:      235,133,156;
+  --wood-rgb:        124,91,76;
 
   --maxw: 1180px;
-  --radius: 18px;
-  --radius-sm: 12px;
-  --shadow-soft: 0 14px 34px rgba(36,27,20,.12);
-  --shadow-card: 0 8px 22px rgba(36,27,20,.10);
+  --radius: 16px;
+  --radius-sm: 11px;
+  --shadow-soft: 0 18px 40px rgba(0,0,0,.42);
+  --shadow-card: 0 10px 26px rgba(0,0,0,.34);
 }
 
 /* =========================================================================
@@ -78,10 +94,10 @@
 html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
 body{
   font-family:"Mulish",system-ui,sans-serif;
-  color:var(--ink);
-  background:var(--cream);
-  line-height:1.6;
-  overflow-x:hidden;           /* no horizontal scroll at any width */
+  color:var(--cream);
+  background:var(--charcoal);
+  line-height:1.65;
+  overflow-x:hidden;                 /* no horizontal scroll at any width */
   font-size:16px;
 }
 img{ max-width:100%; display:block; }
@@ -93,24 +109,29 @@ ul{ list-style:none; }
 /* Fluid wrapper */
 .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:clamp(18px,5vw,40px); }
 
-/* Display type */
-.font-yatra{ font-family:"Yatra One",system-ui,cursive; font-weight:400; }
+/* Display type helpers */
 .font-fredoka{ font-family:"Fredoka",system-ui,sans-serif; }
 
 /* Section scaffolding */
 section{ position:relative; }
-.band{ padding:clamp(56px,9vw,104px) 0; }
+.band{ padding:clamp(58px,9vw,108px) 0; }
+
+/* Kicker = small gold sunburst + tracked gold label (the recurring theme) */
 .kicker{
+  display:inline-flex; align-items:center; gap:.5rem;
   font-family:"Fredoka",sans-serif; font-weight:600;
-  font-size:.8rem; letter-spacing:.25em; text-transform:uppercase;
-  display:inline-block; margin-bottom:.6rem;
+  font-size:.8rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.7rem;
 }
+.kicker .sb{ width:1.05em; height:1.05em; color:var(--gold); flex:0 0 auto; }
+
 .h-sec{
   font-family:"Fredoka",sans-serif; font-weight:700;
-  font-size:clamp(1.8rem,5vw,3rem); line-height:1.08; letter-spacing:-.01em;
+  font-size:clamp(1.8rem,5vw,2.9rem); line-height:1.08; letter-spacing:-.01em;
+  color:var(--salmon);
 }
-.lead{ font-size:clamp(1.02rem,2.2vw,1.18rem); max-width:60ch; }
-.body-p{ font-size:1.02rem; line-height:1.65; margin-top:1rem; max-width:62ch; }
+.lead{ font-size:clamp(1.02rem,2.2vw,1.16rem); max-width:60ch; color:var(--cream); }
+.body-p{ font-size:1.02rem; line-height:1.65; margin-top:1rem; max-width:62ch; color:var(--cream); }
 
 /* Buttons */
 .btn{
@@ -120,72 +141,91 @@ section{ position:relative; }
   transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease;
   text-align:center; line-height:1.1;
 }
-.btn-primary{ background:var(--cantina-red); color:var(--cream); box-shadow:0 6px 16px rgba(184,30,42,.28); }
-.btn-primary:hover,.btn-primary:focus-visible{ transform:translateY(-2px); box-shadow:0 12px 24px rgba(184,30,42,.34); }
-.btn-ghost{ background:transparent; color:var(--cantina-red); border:2px solid var(--cantina-red); }
-.btn-ghost:hover,.btn-ghost:focus-visible{ transform:translateY(-2px); background:var(--cantina-red); color:var(--cream); }
-.btn-gold{ background:var(--logo-gold); color:var(--ink); }
-.btn-gold:hover,.btn-gold:focus-visible{ transform:translateY(-2px); box-shadow:var(--shadow-card); }
-.text-link{ font-family:"Fredoka",sans-serif; font-weight:600; color:var(--cantina-red); position:relative; }
-.text-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:2px; width:0; background:var(--string-gold); transition:width .25s ease; }
+/* Primary: salmon fill, dark text (dark-on-salmon for contrast) */
+.btn-primary{ background:var(--salmon); color:var(--charcoal-deep); box-shadow:0 8px 20px rgba(0,0,0,.34); }
+.btn-primary:hover,.btn-primary:focus-visible{ transform:translateY(-2px); background:var(--salmon-deep); box-shadow:0 14px 28px rgba(0,0,0,.42); }
+/* Secondary: transparent with salmon border + cream text, fills to salmon on hover */
+.btn-ghost{ background:transparent; color:var(--cream); border:2px solid var(--salmon); }
+.btn-ghost:hover,.btn-ghost:focus-visible{ transform:translateY(-2px); background:var(--salmon); color:var(--charcoal-deep); }
+
+.text-link{ font-family:"Fredoka",sans-serif; font-weight:600; color:var(--salmon); position:relative; }
+.text-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:2px; width:0; background:var(--gold); transition:width .25s ease; }
 .text-link:hover::after,.text-link:focus-visible::after{ width:100%; }
 
-:focus-visible{ outline:3px solid var(--logo-gold); outline-offset:2px; border-radius:6px; }
+:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; border-radius:6px; }
 
 /* =========================================================================
-   ROUNDEL PLACEHOLDER TOKEN (real logo slot)
+   REAL LOGO CHIP (raster logo.png on matching dark, capped small)
+   The PNG has a baked dark background, so it always sits on --charcoal-deep
+   or inside a --charcoal-deep round chip so the seam disappears.
    ========================================================================= */
-.roundel{
+.logo-chip{
   position:relative; flex:0 0 auto; border-radius:50%;
-  background:var(--cantina-red);
-  display:grid; place-items:center;
-  box-shadow:inset 0 0 0 .14em var(--logo-gold), 0 2px 6px rgba(36,27,20,.2);
-  color:var(--cream-text); font-family:"Fredoka",sans-serif; font-weight:700;
-  line-height:1; user-select:none;
+  background:var(--charcoal-deep);
+  display:grid; place-items:center; overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(var(--gold-rgb),.85), 0 2px 8px rgba(0,0,0,.4);
 }
-.roundel span{ letter-spacing:.04em; }
+.logo-chip img{ width:84%; height:84%; object-fit:contain; image-rendering:auto; }
 
 /* =========================================================================
-   LOADER (umbrella opens, gold progress bar). Skipped under reduced motion.
+   GOLD SUNBURST MOTIF (recreated as crisp SVG, the recurring theme)
+   Defined once as <symbol id="sunburst">; reused via <use> everywhere.
+   ========================================================================= */
+.sb{ color:var(--gold); fill:currentColor; }
+
+/* Sun divider: centered sunburst flanked by thin gold/wood hairlines */
+.sun-divider{
+  display:flex; align-items:center; justify-content:center; gap:clamp(10px,3vw,22px);
+  padding:clamp(26px,5vw,40px) clamp(18px,5vw,40px);
+  max-width:var(--maxw); margin-inline:auto;
+}
+.sun-divider .rule{ height:1px; flex:1 1 auto; max-width:240px;
+  background:linear-gradient(90deg, transparent, rgba(var(--gold-rgb),.55), rgba(var(--wood-rgb),.4)); }
+.sun-divider .rule.right{ background:linear-gradient(90deg, rgba(var(--wood-rgb),.4), rgba(var(--gold-rgb),.55), transparent); }
+.sun-divider .sb{ width:30px; height:30px; flex:0 0 auto; }
+
+/* =========================================================================
+   LOADER (gold sunburst scale-in + slow rotate, gold progress bar)
+   Skipped under reduced motion.
    ========================================================================= */
 #loader{
-  position:fixed; inset:0; z-index:9999; background:var(--cream);
-  display:grid; place-items:center; gap:0;
+  position:fixed; inset:0; z-index:9999; background:var(--charcoal-deep);
+  display:grid; place-items:center;
   transition:opacity .5s ease, visibility .5s ease;
 }
 #loader.gone{ opacity:0; visibility:hidden; pointer-events:none; }
 .loader-inner{ display:flex; flex-direction:column; align-items:center; gap:18px; }
-.loader-umb{ width:88px; height:auto; transform:scale(.6); transform-origin:50% 80%;
-  animation:umbOpen .9s cubic-bezier(.34,1.56,.64,1) forwards; }
-@keyframes umbOpen{ 0%{ transform:scale(.6); opacity:.2; } 60%{ transform:scale(1.06); } 100%{ transform:scale(1); opacity:1; } }
-.loader-bar{ width:140px; height:5px; border-radius:999px; background:rgba(36,27,20,.12); overflow:hidden; }
-.loader-bar i{ display:block; height:100%; width:0; background:var(--string-gold);
-  animation:barFill 1.3s ease forwards; }
+.loader-sun{ width:74px; height:74px; color:var(--gold);
+  transform:scale(.7); transform-origin:50% 50%;
+  animation:sunIn 1s cubic-bezier(.22,1,.36,1) forwards, sunSpin 6s linear infinite; }
+@keyframes sunIn{ 0%{ transform:scale(.7); opacity:.2; } 100%{ transform:scale(1); opacity:1; } }
+@keyframes sunSpin{ to{ transform:rotate(20deg); } }
+.loader-bar{ width:140px; height:4px; border-radius:999px; background:rgba(var(--gold-rgb),.18); overflow:hidden; }
+.loader-bar i{ display:block; height:100%; width:0; background:var(--gold); animation:barFill 1.3s ease forwards; }
 @keyframes barFill{ to{ width:100%; } }
-.loader-word{ font-family:"Yatra One",cursive; color:var(--cantina-red); font-size:1.3rem; }
+.loader-word{ font-family:"Fredoka",sans-serif; font-weight:600; color:var(--salmon); font-size:1.25rem; letter-spacing:.01em; }
 
 /* =========================================================================
-   NAV (sticky, warm cream glass)
+   NAV (sticky, dark glass)
    ========================================================================= */
 .nav{
   position:sticky; top:0; z-index:1000;
-  background:rgba(251,239,214,.92);
+  background:rgba(26,29,34,.92);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--logo-gold);
+  border-bottom:1px solid rgba(var(--wood-rgb),.6);
 }
-.nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  min-height:64px; }
-.brand-lockup{ display:flex; align-items:center; gap:.55rem; }
-.brand-lockup .roundel{ width:36px; height:36px; font-size:.72rem; }
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:64px; }
+.brand-lockup{ display:flex; align-items:center; gap:.6rem; }
+.brand-lockup .logo-chip{ width:44px; height:44px; }
 .brand-text{ display:flex; flex-direction:column; line-height:1; }
-.brand-text .bt-main{ font-family:"Yatra One",cursive; color:var(--cantina-red); font-size:1.32rem; }
-.brand-text .bt-sub{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:.52rem;
-  letter-spacing:.32em; text-transform:uppercase; color:var(--ink); margin-top:1px; }
+.brand-text .bt-main{ font-family:"Fredoka",sans-serif; font-weight:600; color:var(--salmon); font-size:1.3rem; }
+.brand-text .bt-sub{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:.54rem;
+  letter-spacing:.3em; text-transform:uppercase; color:var(--cream); margin-top:2px; }
 
 .nav-links{ display:flex; align-items:center; gap:1.6rem; }
-.nav-links a{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:1rem; position:relative; padding:.25rem 0; }
-.nav-links a::after{ content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:var(--string-gold); transition:width .25s ease; }
-.nav-links a:hover,.nav-links a:focus-visible{ color:var(--cantina-red); }
+.nav-links a{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:1rem; color:var(--cream); position:relative; padding:.25rem 0; transition:color .2s ease; }
+.nav-links a::after{ content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:var(--gold); transition:width .25s ease; }
+.nav-links a:hover,.nav-links a:focus-visible{ color:var(--salmon); }
 .nav-links a:hover::after,.nav-links a:focus-visible::after{ width:100%; }
 
 .nav-right{ display:flex; align-items:center; gap:.85rem; }
@@ -195,21 +235,21 @@ section{ position:relative; }
   display:inline-flex; align-items:center; gap:.3rem;
   font-family:"Fredoka",sans-serif; font-weight:600; font-size:.92rem;
   min-height:44px; padding:.35rem .8rem; border-radius:999px;
-  border:1.5px solid var(--logo-gold); background:var(--cream);
-  transition:box-shadow .2s ease;
+  border:1.5px solid rgba(var(--gold-rgb),.7); background:rgba(var(--charcoal),.6);
+  transition:box-shadow .2s ease, border-color .2s ease;
 }
-.lang-toggle:hover{ box-shadow:var(--shadow-card); }
-.lt-code{ color:var(--ink); opacity:.5; transition:opacity .2s, color .2s; }
-.lt-code.is-active{ color:var(--cantina-red); opacity:1; }
-.lt-sep{ opacity:.35; }
+.lang-toggle:hover{ box-shadow:var(--shadow-card); border-color:var(--gold); }
+.lt-code{ color:var(--cream); opacity:.55; transition:opacity .2s, color .2s; }
+.lt-code.is-active{ color:var(--salmon); opacity:1; }
+.lt-sep{ opacity:.4; color:var(--cream); }
 
 .nav-cta{ min-height:44px; padding:.5rem 1.15rem; }
 
 /* Hamburger */
 .nav-toggle{ display:none; width:44px; height:44px; border-radius:10px;
   align-items:center; justify-content:center; flex-direction:column; gap:5px;
-  border:1.5px solid var(--logo-gold); background:var(--cream); }
-.nav-toggle span{ display:block; width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .25s ease, opacity .2s ease; }
+  border:1.5px solid rgba(var(--gold-rgb),.7); background:rgba(var(--charcoal),.6); }
+.nav-toggle span{ display:block; width:22px; height:2px; background:var(--cream); border-radius:2px; transition:transform .25s ease, opacity .2s ease; }
 .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
@@ -217,275 +257,272 @@ section{ position:relative; }
 /* Mobile panel */
 .nav-panel{
   display:none; position:fixed; inset:64px 0 auto 0; z-index:999;
-  background:var(--cream); border-bottom:1px solid var(--logo-gold);
+  background:var(--charcoal-deep); border-bottom:1px solid rgba(var(--gold-rgb),.45);
   box-shadow:var(--shadow-soft);
   flex-direction:column; padding:1.2rem clamp(18px,5vw,40px) 1.6rem;
   transform:translateY(-12px); opacity:0; pointer-events:none;
   transition:transform .26s ease, opacity .26s ease;
 }
 .nav-panel.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
-.nav-panel a.np-link{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.18rem;
-  padding:.85rem 0; border-bottom:1px solid rgba(232,176,75,.4); }
-.nav-panel a.np-link:hover{ color:var(--cantina-red); }
+.nav-panel a.np-link{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.18rem; color:var(--cream);
+  padding:.85rem 0; border-bottom:1px solid rgba(var(--wood-rgb),.45); transition:color .2s ease; }
+.nav-panel a.np-link:hover{ color:var(--salmon); }
 .np-foot{ display:flex; align-items:center; gap:.8rem; margin-top:1.2rem; flex-wrap:wrap; }
 .np-foot .btn{ flex:1 1 auto; }
 
 /* =========================================================================
-   DIVIDERS (bunting stripe + string-light garland), the signature
-   ========================================================================= */
-.bunting{ height:8px; width:100%;
-  background:linear-gradient(90deg,
-    var(--umbrella-red) 0 16.6%,
-    var(--umbrella-orange) 16.6% 33.3%,
-    var(--umbrella-yellow) 33.3% 50%,
-    var(--umbrella-green) 50% 66.6%,
-    var(--umbrella-teal) 66.6% 83.3%,
-    var(--umbrella-deep-blue) 83.3% 100%);
-}
-.garland{ width:100%; height:46px; display:block; color:var(--logo-gold); }
-.garland .bulb{ fill:var(--string-gold); }
-
-/* =========================================================================
-   HERO (the showpiece)
+   HERO (the real photo is the showpiece)
    ========================================================================= */
 .hero{
   position:relative; isolation:isolate;
   min-height:100vh;            /* fallback */
   min-height:100svh;
-  display:flex; flex-direction:column;
-  background:
-    radial-gradient(120% 70% at 50% -8%, rgba(255,206,106,.55), rgba(255,206,106,0) 60%),
-    var(--cream);
+  display:flex; flex-direction:column; justify-content:flex-end;
   overflow:hidden;
-  padding-bottom:clamp(40px,7vh,72px);
 }
 @supports (height:100dvh){ .hero{ min-height:100dvh; } }
+@media (max-height:520px) and (orientation:landscape){ .hero{ min-height:560px; } }
 
-/* Canopy zone across the top */
-.canopy-zone{ position:relative; width:100%; height:34vh; min-height:230px; pointer-events:none; z-index:1; }
-.canopy-svg{ position:absolute; inset:0; width:100%; height:100%; }
-.canopy-svg svg{ width:100%; height:100%; }
+/* The real facade photo, full-bleed */
+.hero-photo{ position:absolute; inset:0; z-index:0; }
+.hero-photo img{
+  width:100%; height:100%; object-fit:cover; object-position:center 38%;
+  will-change:transform;
+}
+/* Slow Ken-Burns so the still breathes without revealing its modest resolution */
+@media(prefers-reduced-motion:no-preference){
+  .hero-photo img{ animation:kenburns 22s ease-in-out infinite alternate; }
+}
+@keyframes kenburns{ from{ transform:scale(1); } to{ transform:scale(1.05); } }
 
-/* String-light strands beneath the canopy */
-.lights-layer{ position:absolute; left:0; right:0; top:30vh; height:120px; z-index:2; pointer-events:none; }
-.strand{ position:absolute; left:-3%; width:106%; height:100%; transform-origin:50% 0; }
-.strand svg{ width:100%; height:100%; overflow:visible; }
-.strand .wire{ fill:none; stroke:#6b4a2a; stroke-width:2; opacity:.7; }
-.strand .bulb{ fill:var(--string-gold); filter:drop-shadow(0 0 5px rgba(255,206,106,.9)); }
-.strand-a{ animation:sway 7s ease-in-out infinite alternate; }
-.strand-b{ top:calc(30vh + 26px); animation:sway 8.5s ease-in-out infinite alternate; animation-delay:-2s; }
-@keyframes sway{ from{ transform:rotate(-2deg); } to{ transform:rotate(2deg); } }
-.strand .bulb{ animation:twinkle 5s ease-in-out infinite; }
-@keyframes twinkle{ 0%,100%{ opacity:.78; } 50%{ opacity:1; } }
+/* Tuned charcoal dusk overlay: legible top + grounded base, plus a warm gold crown */
+.hero-overlay{ position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% 18%, rgba(var(--gold-rgb),.12), transparent 60%),
+    linear-gradient(180deg, rgba(26,29,34,.78) 0%, rgba(26,29,34,.30) 42%, rgba(46,50,57,.55) 100%);
+}
+@media(prefers-reduced-motion:no-preference){
+  .hero-overlay{ animation:crownPulse 9s ease-in-out infinite; }
+}
+@keyframes crownPulse{ 0%,100%{ opacity:1; } 50%{ opacity:.92; } }
 
-/* Hero content */
-.hero-content{ position:relative; z-index:3; flex:1; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; text-align:center; gap:1rem;
-  padding-top:clamp(10px,3vh,30px); }
-.hero-roundel{ width:clamp(96px,18vw,148px); height:clamp(96px,18vw,148px);
-  font-size:clamp(1.6rem,4vw,2.4rem); margin-bottom:.4rem; }
+.hero-content{ position:relative; z-index:3;
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:.85rem;
+  padding-top:clamp(96px,16vh,150px); padding-bottom:clamp(72px,12vh,120px); }
+.hero-logo{ width:clamp(72px,12vw,88px); height:clamp(72px,12vw,88px); margin-bottom:.2rem; }
 .hero-wordmark{ position:relative; display:inline-block; }
 .hero-wordmark .wm-main{
-  font-family:"Yatra One",cursive; color:var(--cantina-red);
-  font-size:clamp(2.8rem,12vw,6rem); line-height:.96;
-  text-shadow:1.5px 2px 0 rgba(36,27,20,.16);
+  font-family:"Fredoka",sans-serif; font-weight:600; color:var(--salmon);
+  font-size:clamp(2.4rem,9vw,4.5rem); line-height:1;
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
 }
-.hero-wordmark .wm-underline{ display:block; width:min(80%,360px); height:14px; margin:.1rem auto 0; color:var(--logo-gold); }
 .hero-wordmark .wm-sub{
-  display:block; font-family:"Fredoka",sans-serif; font-weight:600;
-  font-size:clamp(.9rem,3.5vw,1.6rem); letter-spacing:.35em; text-transform:uppercase;
-  color:var(--ink); margin-top:.55rem; padding-left:.35em;
+  display:block; font-family:"Fredoka",sans-serif; font-weight:500;
+  font-size:clamp(.85rem,3vw,1.3rem); letter-spacing:.28em; text-transform:uppercase;
+  color:var(--cream); margin-top:.5rem; padding-left:.28em;
+  text-shadow:0 1px 8px rgba(0,0,0,.6);
 }
-.hero-tagline{ font-family:"Mulish",sans-serif; font-weight:500;
-  font-size:clamp(1rem,2.6vw,1.32rem); color:var(--ink); max-width:34ch; }
-.hero-sub2{ font-size:clamp(.92rem,2.2vw,1.05rem); color:rgba(36,27,20,.78); max-width:46ch; margin-top:-.2rem; }
-.hero-ctas{ display:flex; gap:.85rem; flex-wrap:wrap; justify-content:center; margin-top:.7rem; }
-.hero-call{ margin-top:.2rem; }
+.hero-headline{ font-family:"Fredoka",sans-serif; font-weight:600; color:var(--cream);
+  font-size:clamp(1.4rem,4.5vw,2.2rem); line-height:1.15; text-shadow:0 2px 12px rgba(0,0,0,.6); }
+.hero-sub{ font-family:"Mulish",sans-serif; font-weight:500; font-size:clamp(.95rem,2.2vw,1.08rem);
+  color:var(--cream-dim); max-width:46ch; text-shadow:0 1px 8px rgba(0,0,0,.6); }
+.hero-tagline{ font-family:"Fredoka",sans-serif; font-weight:500; color:var(--salmon);
+  font-size:clamp(.92rem,2.4vw,1.05rem); text-shadow:0 1px 8px rgba(0,0,0,.6); }
+.hero-ctas{ display:flex; gap:.85rem; flex-wrap:wrap; justify-content:center; margin-top:.6rem; }
 
-/* Scroll cue */
-.scroll-cue{ position:absolute; left:50%; bottom:14px; transform:translateX(-50%); z-index:3;
-  color:var(--logo-gold); animation:bob 1.6s ease-in-out infinite; }
+/* Scroll cue: a small gold sunburst with a gentle bob */
+.scroll-cue{ position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:3; color:var(--gold); }
+.scroll-cue .sb{ width:30px; height:30px; }
+@media(prefers-reduced-motion:no-preference){
+  .scroll-cue{ animation:bob 1.6s ease-in-out infinite; }
+}
 @keyframes bob{ 0%,100%{ transform:translate(-50%,0); } 50%{ transform:translate(-50%,7px); } }
 
 /* =========================================================================
    ABOUT / THE TERRACE
    ========================================================================= */
-.about{ background:var(--cream); }
-.about .kicker{ color:var(--umbrella-orange); }
+.about{ background:var(--charcoal); }
 .about-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(28px,5vw,56px); align-items:center; margin-top:1.4rem; }
-.about-quote{ margin-top:1.6rem; font-family:"Yatra One",cursive; color:var(--cantina-red);
-  font-size:clamp(1.3rem,3vw,1.7rem); line-height:1.3; }
+.about-quote{ margin-top:1.6rem; font-family:"Fredoka",sans-serif; font-weight:500; color:var(--salmon);
+  font-size:clamp(1.2rem,3vw,1.55rem); line-height:1.35; }
 .about-quote .qcite{ display:block; font-family:"Mulish",sans-serif; font-weight:600;
-  font-size:.82rem; letter-spacing:.04em; color:rgba(36,27,20,.6); margin-top:.45rem; text-transform:none; font-style:normal; }
-.chips{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.6rem; }
-.chip{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:.86rem;
-  padding:.5rem 1rem; border-radius:999px; color:#fff; line-height:1.1; }
-.chip.c1{ background:var(--umbrella-red); }
-.chip.c2{ background:var(--umbrella-teal); }
-.chip.c3{ background:var(--umbrella-green); }
+  font-size:.82rem; letter-spacing:.03em; color:var(--cream-dim); margin-top:.45rem; font-style:normal; }
+.chips{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.7rem; }
+.chip{ display:inline-flex; align-items:center; gap:.45rem; font-family:"Fredoka",sans-serif; font-weight:600; font-size:.86rem;
+  padding:.5rem 1rem; border-radius:999px; line-height:1.1; color:var(--cream);
+  background:var(--charcoal-deep); border:1px solid rgba(var(--wood-rgb),.8); }
+.chip .sb{ width:1em; height:1em; }
+.chip.olive{ border-color:rgba(111,138,78,.85); }
+.chip.olive .sb{ color:var(--olive); }
 
-/* Illustrated terrace vignette panel (also the real-photo slot later) */
+/* Wood-framed terrace panel (tight crop of the real facade: terrace railing + lights) */
 .terrace-panel{
-  position:relative; border-radius:var(--radius); overflow:hidden;
-  aspect-ratio:4/3; background:linear-gradient(180deg,#fff6e2,#fbe7c2);
-  box-shadow:var(--shadow-soft); border:1px solid rgba(232,176,75,.5);
+  position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3;
+  border:7px solid var(--wood); background:var(--charcoal-deep);
+  box-shadow:var(--shadow-soft);
 }
-.terrace-panel svg{ position:absolute; inset:0; width:100%; height:100%; }
-.tp-flag{ position:absolute; left:10px; bottom:8px; z-index:3; font-size:.62rem;
-  font-family:"Mulish",sans-serif; color:rgba(36,27,20,.5); background:rgba(255,255,255,.62);
-  padding:2px 7px; border-radius:6px; }
-@media(prefers-reduced-motion:no-preference){
-  .open-glow{ animation:openFlicker 4s ease-in-out infinite; }
-}
-@keyframes openFlicker{ 0%,100%{ opacity:1; } 47%{ opacity:.86; } 50%{ opacity:1; } 53%{ opacity:.9; } }
+.terrace-panel img{ width:100%; height:100%; object-fit:cover; object-position:center 30%; }
+.terrace-panel .tp-cap{ position:absolute; left:0; right:0; bottom:0; z-index:2;
+  font-family:"Mulish",sans-serif; font-weight:600; font-size:.8rem; color:var(--cream);
+  padding:.7rem .9rem; background:linear-gradient(0deg, rgba(26,29,34,.86), transparent); }
 
 /* =========================================================================
-   DRINKS & FOOD (the menu band)
+   DRINKS & FOOD (the menu band, a half-step darker)
    ========================================================================= */
-.drinks{ background:var(--cream-2); }
-.drinks .kicker{ color:var(--cantina-red); }
-.drinks .h-sec{ color:var(--cantina-red); }
+.drinks{ background:var(--charcoal-deep); }
 .drinks-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.4vw,26px); margin-top:2rem; }
 .dcard{
-  position:relative; background:var(--cream); border-radius:var(--radius);
-  padding:1.5rem 1.4rem 1.6rem; box-shadow:var(--shadow-card);
-  overflow:hidden; transition:transform .2s ease, box-shadow .2s ease;
+  position:relative; background:var(--charcoal); border-radius:var(--radius);
+  padding:1.6rem 1.4rem; box-shadow:var(--shadow-card);
+  border:1px solid rgba(var(--wood-rgb),.7); overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.dcard::before{ content:""; position:absolute; inset:0 0 auto 0; height:6px; background:var(--c,var(--umbrella-red)); }
-.dcard:hover{ transform:translateY(-4px); box-shadow:0 16px 30px rgba(36,27,20,.14); }
-.dcard .glyph{ width:62px; height:62px; margin-bottom:.9rem; }
-.dcard h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.2rem; }
-.dcard p{ font-size:.97rem; margin-top:.45rem; color:rgba(36,27,20,.85); }
-.menu-flag{ font-size:.78rem; color:rgba(36,27,20,.5); margin-top:1.6rem; font-style:italic; }
+.dcard::before{ content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--gold); }
+.dcard:hover{ transform:translateY(-4px); box-shadow:0 18px 32px rgba(0,0,0,.4); border-color:rgba(var(--gold-rgb),.6); }
+.dcard .glyph{ width:46px; height:46px; margin-bottom:.85rem; color:var(--gold); transition:color .2s ease; }
+.dcard:hover .glyph{ color:var(--salmon); }
+.dcard h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.15rem; color:var(--cream); }
+.dcard p{ font-size:.97rem; margin-top:.45rem; color:var(--cream-dim); }
+.menu-flag{ font-size:.8rem; color:var(--cream-dim); margin-top:1.7rem; font-style:italic; opacity:.8; }
 
 /* =========================================================================
-   THE NIGHTS (the ONE dusk band)
+   THE NIGHTS (after-dark warmth, NOT a neon club)
    ========================================================================= */
-.nights{ background:linear-gradient(165deg,var(--dusk),var(--dusk-2)); color:var(--cream-text); overflow:hidden; }
-.nights .kicker{ color:var(--umbrella-teal); }
-.nights .h-sec{ color:var(--cream-text); }
-.nights .lead{ color:rgba(246,239,226,.86); }
-/* Disco beams (ambient, slow). Disabled under reduced motion. */
-.beams{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
-.beam{ position:absolute; width:60vw; height:60vw; border-radius:50%; filter:blur(60px); opacity:.16; mix-blend-mode:screen; }
-.beam.b1{ background:var(--umbrella-teal); top:-15%; left:-10%; animation:drift1 28s ease-in-out infinite alternate; }
-.beam.b2{ background:var(--umbrella-red); bottom:-20%; right:-5%; animation:drift2 34s ease-in-out infinite alternate; }
-.beam.b3{ background:var(--string-gold); top:30%; left:40%; opacity:.12; animation:drift3 40s ease-in-out infinite alternate; }
-@keyframes drift1{ to{ transform:translate(18vw,10vh); } }
-@keyframes drift2{ to{ transform:translate(-16vw,-8vh); } }
-@keyframes drift3{ to{ transform:translate(-12vw,12vh) scale(1.1); } }
-/* tiny mirror-ball dot */
-.mirror-ball{ position:absolute; top:18px; left:50%; transform:translateX(-50%); width:14px; height:14px;
-  border-radius:50%; background:radial-gradient(circle at 35% 30%, #cfe6ff, #7fa9d6 60%, #3a5f8a);
-  box-shadow:0 0 10px rgba(207,230,255,.6); z-index:1; }
+.nights{ position:relative; background:var(--charcoal); color:var(--cream); overflow:hidden; }
+/* same building later in the evening: deep wood wash low, warm string-light glow up top */
+.nights::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(90% 60% at 50% 6%, rgba(var(--gold-rgb),.12), transparent 58%),
+    radial-gradient(120% 80% at 50% 112%, rgba(70,51,42,.7), transparent 60%); }
+@media(prefers-reduced-motion:no-preference){
+  .nights::before{ animation:warmDrift 14s ease-in-out infinite alternate; }
+}
+@keyframes warmDrift{ from{ opacity:.85; } to{ opacity:1; } }
 .nights .wrap{ position:relative; z-index:2; }
-.nights-strand{ position:relative; z-index:2; width:100%; height:40px; margin:1.6rem 0 0; }
+.nights .h-sec{ color:var(--salmon); }
+.nights .lead{ color:var(--cream); }
+/* a thin string-light strand as warm atmosphere (real, secondary to the photo) */
+.nights-strand{ position:relative; z-index:2; width:100%; height:38px; margin:1.6rem 0 0; }
 .nights-strand svg{ width:100%; height:100%; overflow:visible; }
-.nights-strand .wire{ fill:none; stroke:#caa15f; stroke-width:2; opacity:.6; }
-.nights-strand .bulb{ fill:var(--string-gold); filter:drop-shadow(0 0 6px rgba(255,206,106,1)); }
-.nights-strand .strand-a{ animation:sway 7.5s ease-in-out infinite alternate; transform-origin:50% 0; }
+.nights-strand .wire{ fill:none; stroke:#caa15f; stroke-width:2; opacity:.55; }
+.nights-strand .bulb{ fill:var(--gold); filter:drop-shadow(0 0 5px rgba(var(--gold-rgb),.85)); }
+.nights-strand .strand-a{ transform-origin:50% 0; }
+@media(prefers-reduced-motion:no-preference){
+  .nights-strand .strand-a{ animation:sway 8s ease-in-out infinite alternate; }
+  .nights-strand .bulb{ animation:twinkle 5s ease-in-out infinite; }
+}
+@keyframes sway{ from{ transform:rotate(-1.6deg); } to{ transform:rotate(1.6deg); } }
+@keyframes twinkle{ 0%,100%{ opacity:.82; } 50%{ opacity:1; } }
 .nights-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.4vw,26px); margin-top:1.8rem; }
-.ncard{ background:rgba(246,239,226,.07); border:1px solid rgba(246,239,226,.16); border-radius:var(--radius);
-  padding:1.5rem 1.4rem; -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); transition:transform .2s ease, border-color .2s ease; }
-.ncard:hover{ transform:translateY(-4px); border-color:var(--umbrella-teal); }
-.ncard .glyph{ width:48px; height:48px; margin-bottom:.8rem; color:var(--umbrella-teal); }
-.ncard h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.18rem; color:var(--cream-text); }
-.ncard p{ font-size:.97rem; margin-top:.4rem; color:rgba(246,239,226,.82); }
-.nights-hours{ position:relative; z-index:2; margin-top:1.8rem; font-family:"Fredoka",sans-serif; font-weight:600;
-  color:var(--string-gold); font-size:1.05rem; display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; }
-.nights-quote{ position:relative; z-index:2; margin-top:1.4rem; font-family:"Yatra One",cursive;
-  color:var(--string-gold); font-size:clamp(1.2rem,2.6vw,1.5rem); }
+.ncard{ position:relative; background:rgba(26,29,34,.62); border:1px solid rgba(var(--wood-rgb),.7); border-radius:var(--radius);
+  padding:1.6rem 1.4rem; -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  transition:transform .2s ease, border-color .2s ease; }
+.ncard:hover{ transform:translateY(-4px); border-color:rgba(var(--gold-rgb),.6); }
+.ncard .glyph{ width:42px; height:42px; margin-bottom:.8rem; color:var(--gold); transition:color .2s ease; }
+.ncard:hover .glyph{ color:var(--salmon); }
+.ncard h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.15rem; color:var(--cream); }
+.ncard p{ font-size:.97rem; margin-top:.4rem; color:var(--cream-dim); }
+.nights-extra{ display:flex; flex-wrap:wrap; gap:clamp(18px,4vw,40px); align-items:flex-start; margin-top:1.8rem; }
+.nights-quote{ flex:1 1 260px; font-family:"Fredoka",sans-serif; font-weight:500; color:var(--salmon);
+  font-size:clamp(1.15rem,2.6vw,1.45rem); line-height:1.35; }
+.nights-quote .qcite{ display:block; font-family:"Mulish",sans-serif; font-weight:600; font-size:.8rem;
+  color:var(--cream-dim); margin-top:.4rem; }
+.nights-hours{ flex:1 1 220px; font-family:"Fredoka",sans-serif; font-weight:600; color:var(--gold);
+  font-size:1.05rem; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.nights-hours .sb{ width:1.1em; height:1.1em; }
 
 /* =========================================================================
-   GALLERY (empty-state, invites real photos)
+   GALLERY (real facade photo + inviting empty tiles)
    ========================================================================= */
-.gallery{ background:var(--cream); }
-.gallery .kicker{ color:#caa11a; }
-.gallery .h-sec{ color:var(--ink); }
+.gallery{ background:var(--charcoal-deep); }
+.gallery-intro{ margin-top:.4rem; }
 .gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); margin-top:1.8rem; }
-/* Each tile is a finished frame ready to receive a real photo with zero layout change. */
 .tile{
   position:relative; aspect-ratio:1/1; border-radius:var(--radius); overflow:hidden;
-  border:2px dashed var(--logo-gold);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem;
-  text-align:center; color:rgba(36,27,20,.55);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.55rem;
+  text-align:center; color:var(--cream-dim);
 }
-.tile.t1{ background:rgba(226,59,51,.08); }
-.tile.t2{ background:rgba(240,138,29,.10); }
-.tile.t3{ background:rgba(247,198,30,.12); }
-.tile.t4{ background:rgba(63,164,91,.10); }
-.tile.t5{ background:rgba(42,134,196,.10); }
-.tile.t6{ background:rgba(38,76,155,.09); }
-.tile .glyph{ width:42px; height:42px; color:var(--logo-gold); }
-.tile small{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:.82rem; letter-spacing:.02em; }
-.tile img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+/* tile 1 = the real facade photo in a wood frame */
+.tile.real{ border:6px solid var(--wood); background:var(--charcoal); color:var(--cream); }
+.tile.real img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 42%; }
+.tile.real .t-cap{ position:absolute; left:0; right:0; bottom:0; z-index:2;
+  font-family:"Mulish",sans-serif; font-weight:600; font-size:.78rem; color:var(--cream);
+  padding:.65rem .8rem; background:linear-gradient(0deg, rgba(26,29,34,.86), transparent); }
+/* empty-state tiles invite the owner camera roll (zero-layout-change swap path) */
+.tile.empty{ border:2px dashed rgba(var(--gold-rgb),.7); background:var(--charcoal); }
+.tile.empty .sb{ width:40px; height:40px; color:var(--gold); }
+.tile.empty small{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:.82rem; letter-spacing:.02em; }
+.tile.empty img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 
 /* =========================================================================
    VISIT / HOURS / MAP
    ========================================================================= */
-.visit{ background:var(--cream-2); }
-.visit .kicker{ color:var(--umbrella-green); }
+.visit{ background:var(--charcoal); }
 .visit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(26px,4vw,48px); margin-top:1.6rem; align-items:start; }
-.info-block{ margin-bottom:1.5rem; }
-.info-block h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.02rem; color:var(--umbrella-green); margin-bottom:.3rem; }
-.info-block p, .info-block a{ font-size:1rem; }
-.info-block a.text-link{ word-break:break-word; }
-.hours-note{ font-size:.82rem; color:rgba(36,27,20,.55); font-style:italic; margin-top:.3rem; }
-.social-row{ display:flex; gap:.8rem; flex-wrap:wrap; margin-top:.4rem; }
+.info-list{ display:flex; flex-direction:column; gap:1.3rem; }
+.info-row{ display:flex; gap:.85rem; align-items:flex-start; }
+.info-row .sb{ width:22px; height:22px; flex:0 0 auto; margin-top:.2rem; color:var(--gold); }
+.info-row h3{ font-family:"Fredoka",sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--salmon); margin-bottom:.3rem; }
+.info-row p, .info-row a{ font-size:1rem; color:var(--cream); }
+.info-row a.text-link{ word-break:break-word; }
+.hours-note{ font-size:.84rem; color:var(--cream-dim); font-style:italic; margin-top:.35rem; }
+.social-row{ display:flex; gap:.7rem; flex-wrap:wrap; margin-top:.4rem; }
 .social-row a{ display:inline-flex; align-items:center; gap:.4rem; font-family:"Fredoka",sans-serif; font-weight:600;
-  min-height:44px; padding:.4rem .9rem; border-radius:999px; border:1.5px solid var(--umbrella-green); color:var(--umbrella-green);
+  min-height:44px; padding:.4rem .9rem; border-radius:999px; border:1.5px solid var(--salmon); color:var(--salmon);
   transition:background-color .2s, color .2s; }
-.social-row a:hover{ background:var(--umbrella-green); color:#fff; }
+.social-row a:hover{ background:var(--salmon); color:var(--charcoal-deep); }
 .social-row svg{ width:18px; height:18px; }
 
-.map-frame{ border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft); border:1px solid rgba(63,164,91,.4); }
-.map-frame iframe{ display:block; width:100%; height:340px; border:0; }
+.map-frame{ border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-soft); border:6px solid var(--wood); }
+.map-frame iframe{ display:block; width:100%; height:340px; border:0; background:var(--charcoal-deep); }
 
 /* Reserve form (non-functional, friendly inline confirmation) */
-.reserve{ margin-top:1.8rem; background:var(--cream); border-radius:var(--radius); padding:clamp(20px,4vw,32px);
-  box-shadow:var(--shadow-card); border:1px solid rgba(232,176,75,.5); }
-.reserve h3{ font-family:"Fredoka",sans-serif; font-weight:700; font-size:1.3rem; color:var(--cantina-red); }
-.reserve .helper{ font-size:.96rem; color:rgba(36,27,20,.8); margin-top:.35rem; }
+.reserve{ margin-top:1.8rem; background:var(--charcoal-deep); border-radius:var(--radius); padding:clamp(20px,4vw,32px);
+  box-shadow:var(--shadow-card); border:1px solid rgba(var(--wood-rgb),.7); }
+.reserve h3{ font-family:"Fredoka",sans-serif; font-weight:700; font-size:1.3rem; color:var(--salmon); }
+.reserve .helper{ font-size:.96rem; color:var(--cream-dim); margin-top:.35rem; }
 .reserve form{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:1.1rem; }
 .reserve .full{ grid-column:1 / -1; }
-.reserve label{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:.82rem; display:block; margin-bottom:.25rem; }
+.reserve label{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:.82rem; display:block; margin-bottom:.25rem; color:var(--cream); }
 .reserve input{ width:100%; min-height:48px; padding:.6rem .85rem; border-radius:var(--radius-sm);
-  border:1.5px solid rgba(36,27,20,.18); background:#fff; font-family:"Mulish",sans-serif; font-size:1rem; color:var(--ink); }
-.reserve input:focus{ outline:none; border-color:var(--cantina-red); box-shadow:0 0 0 3px rgba(184,30,42,.14); }
+  border:1.5px solid rgba(var(--wood-rgb),.8); background:var(--charcoal); font-family:"Mulish",sans-serif; font-size:1rem; color:var(--cream); }
+.reserve input::placeholder{ color:rgba(201,190,178,.6); }
+.reserve input:focus{ outline:none; border-color:var(--salmon); box-shadow:0 0 0 3px rgba(var(--salmon-rgb),.2); }
 .reserve .btn{ width:100%; }
 .reserve-confirm{ display:none; margin-top:1rem; padding:1rem 1.1rem; border-radius:var(--radius-sm);
-  background:rgba(63,164,91,.12); border:1.5px solid var(--umbrella-green); color:var(--ink); font-size:1rem; line-height:1.55; }
+  background:rgba(111,138,78,.16); border:1.5px solid var(--olive); color:var(--cream); font-size:1rem; line-height:1.55; }
 .reserve-confirm.show{ display:block; }
 
 /* =========================================================================
-   FOOTER
+   FOOTER (the "sign" sign-off)
    ========================================================================= */
-.footer{ position:relative; background:var(--cantina-red); color:var(--cream-text); text-align:center;
-  padding:clamp(48px,7vw,76px) 0 0; overflow:hidden; }
-.footer .garland{ color:var(--logo-gold); margin-bottom:1.4rem; }
-.footer .footer-garland .bulb{ fill:var(--string-gold); filter:drop-shadow(0 0 5px rgba(255,206,106,.85)); }
-.footer-roundel{ width:64px; height:64px; font-size:1.15rem; margin:0 auto 1rem; box-shadow:inset 0 0 0 .14em var(--logo-gold), 0 2px 8px rgba(0,0,0,.25); background:#9c1822; }
-.footer-word{ font-family:"Yatra One",cursive; font-size:2rem; line-height:1; }
-.footer-word small{ display:block; font-family:"Fredoka",sans-serif; font-weight:600; font-size:.6rem; letter-spacing:.32em; text-transform:uppercase; margin-top:.3rem; color:var(--string-gold); }
-.footer-tag{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:1.1rem; margin-top:1rem; color:var(--string-gold); }
+.footer{ position:relative; background:var(--charcoal-deep); color:var(--cream); text-align:center;
+  padding:clamp(48px,7vw,76px) 0 clamp(28px,4vw,40px); overflow:hidden; }
+.footer-hairline{ height:1px; width:min(420px,80%); margin:0 auto clamp(18px,3vw,26px);
+  background:linear-gradient(90deg, transparent, rgba(var(--gold-rgb),.6), transparent); }
+.footer-suns{ display:flex; justify-content:center; align-items:center; gap:clamp(14px,4vw,28px); margin-bottom:clamp(22px,4vw,34px); }
+.footer-suns .sb{ width:20px; height:20px; color:var(--gold); opacity:.9; }
+.footer-logo{ width:56px; height:56px; margin:0 auto 1rem; }
+.footer-word{ font-family:"Fredoka",sans-serif; font-weight:600; color:var(--salmon); font-size:1.85rem; line-height:1; }
+.footer-word small{ display:block; font-family:"Fredoka",sans-serif; font-weight:500; font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; margin-top:.35rem; color:var(--cream); }
+.footer-tag{ font-family:"Fredoka",sans-serif; font-weight:500; font-size:1.1rem; margin-top:1rem; color:var(--salmon); }
 .footer-social{ display:flex; gap:.7rem; justify-content:center; flex-wrap:wrap; margin-top:1.2rem; }
 .footer-social a{ display:inline-flex; align-items:center; gap:.4rem; font-family:"Fredoka",sans-serif; font-weight:600; font-size:.92rem;
-  min-height:44px; padding:.4rem .9rem; border-radius:999px; border:1.5px solid var(--string-gold); color:var(--cream-text); transition:background-color .2s,color .2s; }
-.footer-social a:hover{ background:var(--string-gold); color:var(--ink); }
+  min-height:44px; padding:.4rem .9rem; border-radius:999px; border:1.5px solid rgba(var(--gold-rgb),.7); color:var(--cream); transition:background-color .2s,color .2s,border-color .2s; }
+.footer-social a:hover{ background:var(--salmon); color:var(--charcoal-deep); border-color:var(--salmon); }
 .footer-social svg{ width:18px; height:18px; }
-.footer-addr{ font-size:.9rem; margin-top:1.1rem; color:rgba(246,239,226,.85); max-width:48ch; margin-inline:auto; }
-.footer-fine{ font-size:.82rem; margin-top:.7rem; color:rgba(246,239,226,.72); max-width:52ch; margin-inline:auto; }
-.footer-credit{ font-size:.78rem; margin-top:1rem; color:rgba(246,239,226,.6); }
-.footer-credit a:hover{ color:var(--string-gold); }
-.footer-stripe{ margin-top:1.6rem; }
+.footer-addr{ font-size:.9rem; margin-top:1.2rem; color:var(--cream-dim); max-width:48ch; margin-inline:auto; }
+.footer-addr a{ color:var(--salmon); }
+.footer-fine{ font-size:.82rem; margin-top:.7rem; color:var(--cream-dim); max-width:52ch; margin-inline:auto; opacity:.85; }
+.footer-credit{ font-size:.78rem; margin-top:1.1rem; color:var(--cream-dim); opacity:.7; }
+.footer-credit a{ color:var(--salmon); }
 
 /* =========================================================================
-   REVEAL ON SCROLL
+   REVEAL ON SCROLL (clean settle, no rotation)
    ========================================================================= */
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
 .reveal.in{ opacity:1; transform:none; }
-.reveal.tilt{ transform:translateY(16px) rotate(1.2deg); }
-.reveal.tilt.in{ transform:none; }
 .reveal[data-delay="1"]{ transition-delay:.08s; }
 .reveal[data-delay="2"]{ transition-delay:.16s; }
 .reveal[data-delay="3"]{ transition-delay:.24s; }
@@ -506,14 +543,12 @@ section{ position:relative; }
   .nav-right .lang-toggle, .nav-right .nav-cta{ display:none; }
   .nav-toggle{ display:flex; }
   .nav-panel{ display:flex; }
-  .canopy-zone{ height:28vh; min-height:200px; }
-  .lights-layer{ top:25vh; }
-  .strand-b{ display:none; }          /* single strand on mobile */
 }
 @media(max-width:620px){
   .gallery-grid{ grid-template-columns:repeat(2,1fr); }
   .nights-grid{ grid-template-columns:1fr; }
   .reserve form{ grid-template-columns:1fr; }
+  .nights::before{ opacity:.8; }
 }
 @media(max-width:480px){
   .drinks-grid{ grid-template-columns:1fr; }
@@ -529,7 +564,7 @@ section{ position:relative; }
   *,*::before,*::after{ animation:none !important; transition:none !important; }
   .reveal{ opacity:1 !important; transform:none !important; }
   .scroll-cue{ display:none; }
-  .beam{ opacity:.12; }
+  .hero-photo img{ transform:none !important; }
   #loader{ display:none !important; }
 }
 </style>
@@ -537,20 +572,37 @@ section{ position:relative; }
 
 <body>
 
+<!-- =========================================================================
+     INLINE SVG DEFS: the gold sunburst symbol, defined once, reused via <use>.
+     A center dot + 12 tapered rays rotated 30deg apart. Filled gold by default.
+     This is a plain geometric sun (NOT the Aztec figure), so recreating it is fine.
+     ========================================================================= -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="sunburst" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="3"/>
+    <g>
+      <path d="M12 0.6 L13.3 5.4 L10.7 5.4 Z"/>
+      <path d="M12 23.4 L13.3 18.6 L10.7 18.6 Z"/>
+      <path d="M0.6 12 L5.4 10.7 L5.4 13.3 Z"/>
+      <path d="M23.4 12 L18.6 10.7 L18.6 13.3 Z"/>
+      <path d="M3.95 3.95 L8.2 6.4 L6.4 8.2 Z"/>
+      <path d="M20.05 20.05 L15.8 17.6 L17.6 15.8 Z"/>
+      <path d="M20.05 3.95 L15.8 6.4 L17.6 8.2 Z"/>
+      <path d="M3.95 20.05 L8.2 17.6 L6.4 15.8 Z"/>
+      <path d="M12 1.8 L12.8 5.2 L11.2 5.2 Z" transform="rotate(15 12 12)"/>
+      <path d="M12 1.8 L12.8 5.2 L11.2 5.2 Z" transform="rotate(45 12 12)"/>
+      <path d="M12 1.8 L12.8 5.2 L11.2 5.2 Z" transform="rotate(195 12 12)"/>
+      <path d="M12 1.8 L12.8 5.2 L11.2 5.2 Z" transform="rotate(225 12 12)"/>
+    </g>
+  </symbol>
+</svg>
+
 <!-- =========================== LOADER =========================== -->
 <div id="loader" aria-hidden="true">
   <div class="loader-inner">
-    <svg class="loader-umb" viewBox="0 0 120 90" aria-hidden="true">
-      <!-- single umbrella that opens -->
-      <path d="M60 16 C28 16 6 40 4 54 C24 44 40 46 60 54 C80 46 96 44 116 54 C114 40 92 16 60 16 Z" fill="#E23B33"/>
-      <path d="M60 16 C44 18 36 38 36 52 C46 49 53 50 60 54 Z" fill="#F7C61E"/>
-      <path d="M60 16 C76 18 84 38 84 52 C74 49 67 50 60 54 Z" fill="#2A86C4"/>
-      <path d="M4 54 C24 44 40 46 60 54 C80 46 96 44 116 54" fill="none" stroke="rgba(36,27,20,.18)" stroke-width="2"/>
-      <rect x="58.5" y="54" width="3" height="30" rx="1.5" fill="#6b4a2a"/>
-      <circle cx="60" cy="14" r="3" fill="#E8B04B"/>
-    </svg>
+    <svg class="loader-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
     <div class="loader-bar"><i></i></div>
-    <div class="loader-word">Margaritas</div>
+    <div class="loader-word">margaritas</div>
   </div>
 </div>
 
@@ -558,11 +610,11 @@ section{ position:relative; }
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand-lockup" href="#top" aria-label="Margaritas Terraza Bar home">
-      <!-- [asset slot: real red roundel logo.png goes here, supplied by owner. Placeholder token in use. Do NOT fabricate the Aztec-figure art.] -->
-      <span class="roundel" aria-hidden="true"><span>MT</span></span>
+      <!-- Real Aztec emblem (logo.png) in a dark round chip so its baked dark background blends. -->
+      <span class="logo-chip"><img src="assets/logo.png" width="99" height="100" data-en="Margaritas Terraza Bar logo" data-es="Logo de Margaritas Terraza Bar" alt="Margaritas Terraza Bar logo" /></span>
       <span class="brand-text">
-        <span class="bt-main">Margaritas</span>
-        <span class="bt-sub">Terraza Bar</span>
+        <span class="bt-main">margaritas</span>
+        <span class="bt-sub">terraza bar</span>
       </span>
     </a>
 
@@ -579,7 +631,7 @@ section{ position:relative; }
         <span class="lt-sep" aria-hidden="true">|</span>
         <span class="lt-code" data-code="es">ES</span>
       </button>
-      <a class="btn btn-primary nav-cta" href="tel:+526383840230" data-en="Call" data-es="Llamar">Call</a>
+      <a class="btn btn-primary nav-cta" href="#visit" data-en="Save a table" data-es="Aparta tu mesa">Save a table</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -600,64 +652,60 @@ section{ position:relative; }
       <span class="lt-sep" aria-hidden="true">|</span>
       <span class="lt-code" data-code="es">ES</span>
     </button>
-    <a class="btn btn-primary" href="tel:+526383840230" data-en="Call us" data-es="Ll&aacute;manos">Call us</a>
+    <a class="btn btn-primary" href="#visit" data-en="Save a table" data-es="Aparta tu mesa">Save a table</a>
   </div>
 </div>
 
 <main id="top">
 
 <!-- =========================== HERO =========================== -->
-<section class="hero" id="hero" aria-label="Margaritas Terraza Bar">
-  <!-- Canopy: built once as a template umbrella, cloned across staggered rows by JS. -->
-  <div class="canopy-zone" aria-hidden="true">
-    <div class="canopy-svg" id="canopy"></div>
+<section class="hero" id="hero" aria-label="The Margaritas Terraza Bar storefront in Puerto Penasco at dusk" data-en-label="The Margaritas Terraza Bar storefront in Puerto Penasco at dusk" data-es-label="La fachada de Margaritas Terraza Bar en Puerto Pe&ntilde;asco al anochecer">
+  <!-- The REAL storefront photo, full-bleed. webp first, jpg fallback. -->
+  <div class="hero-photo" aria-hidden="true">
+    <picture>
+      <source srcset="assets/hero-facade.webp" type="image/webp" />
+      <img src="assets/hero-facade.jpg" width="702" height="527" alt="" fetchpriority="high" />
+    </picture>
   </div>
-
-  <!-- String lights beneath the canopy (the only continuously animated hero element) -->
-  <div class="lights-layer" aria-hidden="true">
-    <div class="strand strand-a"></div>
-    <div class="strand strand-b"></div>
-  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="wrap hero-content">
-    <!-- [asset slot: real red roundel logo.png goes here, supplied by owner. Placeholder token in use. Do NOT fabricate the Aztec-figure art.] -->
-    <span class="roundel hero-roundel" aria-hidden="true"><span>MT</span></span>
+    <!-- Real Aztec emblem on the dark overlay, small (the painted sign in the photo is the big logo moment). -->
+    <img class="hero-logo" src="assets/logo.png" width="99" height="100" data-en="Margaritas Terraza Bar logo" data-es="Logo de Margaritas Terraza Bar" alt="Margaritas Terraza Bar logo" />
 
     <h1 class="hero-wordmark">
-      <span class="wm-main">Margaritas</span>
-      <svg class="wm-underline" viewBox="0 0 360 14" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M4 9 C70 2 130 12 190 7 C250 2 310 11 356 5" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-      <span class="wm-sub">Terraza Bar</span>
+      <span class="wm-main">margaritas</span>
+      <span class="wm-sub">terraza bar</span>
     </h1>
 
-    <p class="hero-tagline" data-en="Come up to the roof." data-es="Sube a la terraza.">Come up to the roof.</p>
-    <p class="hero-sub2"
+    <p class="hero-headline" data-en="Come up to the roof." data-es="Sube a la terraza.">Come up to the roof.</p>
+    <p class="hero-sub"
        data-en="A ceiling full of colored umbrellas, string lights, karaoke, and frozen margaritas, right in the middle of Rocky Point. Open late."
        data-es="Un techo lleno de paraguas de colores, lucecitas, karaoke y margaritas frozen, en pleno coraz&oacute;n de Puerto Pe&ntilde;asco. Abierto hasta tarde.">A ceiling full of colored umbrellas, string lights, karaoke, and frozen margaritas, right in the middle of Rocky Point. Open late.</p>
+    <p class="hero-tagline" data-en="Micheladas, music, and a sky full of umbrellas." data-es="Micheladas, m&uacute;sica y un cielo de paraguas.">Micheladas, music, and a sky full of umbrellas.</p>
 
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="#drinks" data-en="See the Menu" data-es="Ver el Men&uacute;">See the Menu</a>
-      <a class="btn btn-ghost" href="#visit" data-en="Find Us" data-es="C&oacute;mo Llegar">Find Us</a>
+      <a class="btn btn-primary" href="#visit" data-en="Save a table" data-es="Aparta tu mesa">Save a table</a>
+      <a class="btn btn-ghost" href="tel:+526383840230" data-en="Call us" data-es="Ll&aacute;manos">Call us</a>
     </div>
-    <a class="text-link hero-call" href="tel:+526383840230" data-en="or call us" data-es="o ll&aacute;manos">or call us</a>
   </div>
 
-  <a href="#about" class="scroll-cue" aria-label="Scroll to content">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  <a href="#about" class="scroll-cue" aria-label="Scroll to content" data-en-label="Scroll to content" data-es-label="Desplazarse al contenido">
+    <svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
   </a>
 </section>
 
-<!-- divider: string-light garland -->
-<svg class="garland" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0 6 Q300 46 600 14 T1200 6" fill="none" stroke="currentColor" stroke-width="2.5"/>
-  <g class="g-bulbs"></g>
-</svg>
+<!-- sun divider -->
+<div class="sun-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+  <span class="rule right"></span>
+</div>
 
 <!-- =========================== ABOUT / THE TERRACE =========================== -->
 <section class="band about" id="about">
   <div class="wrap">
-    <span class="kicker reveal" data-en="The Terrace" data-es="La Terraza">The Terrace</span>
+    <span class="kicker reveal"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="The Terrace" data-es="La Terraza">The Terrace</span></span>
     <h2 class="h-sec reveal" data-delay="1" data-en="Where the night gets good." data-es="Donde la noche se pone buena.">Where the night gets good.</h2>
     <div class="about-grid">
       <div>
@@ -675,82 +723,46 @@ section{ position:relative; }
         </blockquote>
 
         <div class="chips reveal" data-delay="3">
-          <span class="chip c1" data-en="Open til 3 AM" data-es="Abierto hasta las 3 AM">Open til 3 AM</span>
-          <span class="chip c2" data-en="Karaoke + DJ" data-es="Karaoke + DJ">Karaoke + DJ</span>
-          <span class="chip c3" data-en="Micheladas + Margaritas" data-es="Micheladas + Margaritas">Micheladas + Margaritas</span>
+          <span class="chip"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="Open til 3 AM" data-es="Abierto hasta las 3 AM">Open til 3 AM</span></span>
+          <span class="chip"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="Karaoke + DJ" data-es="Karaoke + DJ">Karaoke + DJ</span></span>
+          <span class="chip olive"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="Micheladas + Margaritas" data-es="Micheladas + Margaritas">Micheladas + Margaritas</span></span>
         </div>
       </div>
 
-      <!-- Illustrated terrace vignette (CSS/SVG). Also the real terrace-photo slot later. -->
-      <!-- [asset slot: terrace photo, 4:3, drops in here] -->
-      <div class="terrace-panel reveal tilt" data-delay="2" role="img"
-           aria-label="Illustration of the rooftop terrace at dusk with colored umbrellas, string lights, a city skyline, and a glowing neon OPEN sign">
-        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="tpSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#fff7e6"/>
-              <stop offset="1" stop-color="#f8dca8"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="300" fill="url(#tpSky)"/>
-          <!-- skyline silhouette in dusk, low opacity, along the bottom -->
-          <g fill="#14233A" opacity="0.16">
-            <rect x="0" y="232" width="400" height="68"/>
-            <rect x="22" y="200" width="34" height="40"/>
-            <rect x="70" y="182" width="26" height="58"/>
-            <rect x="110" y="210" width="40" height="30"/>
-            <rect x="166" y="190" width="30" height="50"/>
-            <rect x="210" y="206" width="36" height="34"/>
-            <rect x="258" y="178" width="28" height="62"/>
-            <rect x="300" y="198" width="44" height="42"/>
-            <rect x="352" y="208" width="30" height="32"/>
-          </g>
-          <!-- umbrella tops peeking from the top edge -->
-          <g>
-            <path d="M40 -8 C12 -8 -2 18 -3 30 C16 22 28 24 40 30 C52 24 64 22 83 30 C82 18 68 -8 40 -8Z" fill="#E23B33"/>
-            <path d="M132 -14 C104 -14 90 12 89 24 C108 16 120 18 132 24 C144 18 156 16 175 24 C174 12 160 -14 132 -14Z" fill="#F7C61E"/>
-            <path d="M232 -10 C204 -10 190 16 189 28 C208 20 220 22 232 28 C244 22 256 20 275 28 C274 16 260 -10 232 -10Z" fill="#3FA45B"/>
-            <path d="M330 -14 C302 -14 288 12 287 24 C306 16 318 18 330 24 C342 18 354 16 373 24 C372 12 358 -14 330 -14Z" fill="#2A86C4"/>
-            <path d="M400 -6 C384 -6 372 14 372 26 C386 19 400 20 412 26 L412 -6Z" fill="#F08A1D"/>
-          </g>
-          <!-- string light wire + a few bulbs -->
-          <path d="M0 70 Q200 110 400 70" fill="none" stroke="#caa15f" stroke-width="2" opacity="0.7"/>
-          <g fill="#FFCE6A">
-            <circle cx="60" cy="88" r="4.5"/><circle cx="140" cy="98" r="4.5"/>
-            <circle cx="220" cy="100" r="4.5"/><circle cx="300" cy="96" r="4.5"/>
-            <circle cx="360" cy="86" r="4.5"/>
-          </g>
-          <!-- the ONLY neon OPEN sign on the whole page -->
-          <g class="open-glow" transform="translate(150,140)">
-            <rect x="0" y="0" width="100" height="44" rx="9" fill="#2a1118" stroke="#FF5A7A" stroke-width="2.5"/>
-            <text x="50" y="30" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="22" fill="#FF5A7A" style="filter:drop-shadow(0 0 5px #FF5A7A)">OPEN</text>
-          </g>
-        </svg>
-        <span class="tp-flag" data-en="Real terrace photo drops in here" data-es="Aqu&iacute; va una foto real de la terraza">Real terrace photo drops in here</span>
+      <!-- Wood-framed panel: a tight crop of the real facade (terrace railing + string lights). -->
+      <div class="terrace-panel reveal" data-delay="2" role="img" data-en-label="A close look at the rooftop terrace railing and string lights" data-es-label="Un acercamiento al barandal de la terraza y las lucecitas" aria-label="A close look at the rooftop terrace railing and string lights">
+        <picture>
+          <source srcset="assets/hero-facade.webp" type="image/webp" />
+          <img src="assets/hero-facade.jpg" width="702" height="527" alt="" loading="lazy" />
+        </picture>
+        <span class="tp-cap" data-en="Up on the terrace, lights on" data-es="Arriba en la terraza, con las luces encendidas">Up on the terrace, lights on</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- divider: bunting stripe -->
-<div class="bunting" aria-hidden="true"></div>
+<!-- sun divider -->
+<div class="sun-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+  <span class="rule right"></span>
+</div>
 
 <!-- =========================== DRINKS & FOOD =========================== -->
 <section class="band drinks" id="drinks">
   <div class="wrap">
-    <span class="kicker reveal" data-en="Sip &amp; Bite" data-es="Para Beber y Comer">Sip &amp; Bite</span>
-    <h2 class="h-sec reveal" data-delay="1" data-en="Drinks &amp; Food" data-es="Bebidas y Comida">Drinks &amp; Food</h2>
+    <span class="kicker reveal"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="Drinks &amp; Food" data-es="Bebidas y Comida">Drinks &amp; Food</span></span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="What lands on the table" data-es="Lo que cae en la mesa">What lands on the table</h2>
     <p class="lead reveal" data-delay="1"
        data-en="Cold drinks, hot food, and a kitchen that keeps going while the music plays. Here is what lands on the table."
        data-es="Bebidas bien fr&iacute;as, comida calientita y una cocina que no para mientras suena la m&uacute;sica. Esto es lo que cae en la mesa.">Cold drinks, hot food, and a kitchen that keeps going while the music plays. Here is what lands on the table.</p>
 
     <div class="drinks-grid">
       <!-- House Margaritas -->
-      <article class="dcard reveal" data-delay="1" style="--c:var(--umbrella-red)">
+      <article class="dcard reveal" data-delay="1">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M10 14 L54 14 L34 40 L34 54 L42 58 L22 58 L30 54 L30 40 Z" fill="none" stroke="#241B14" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M16 20 L48 20 L34 38 L30 38 Z" fill="#D7E27A"/>
-          <circle cx="44" cy="16" r="4" fill="#3FA45B"/>
+          <path d="M12 14 L52 14 L34 38 L34 52 L42 56 L22 56 L30 52 L30 38 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="46" cy="15" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/>
         </svg>
         <h3 data-en="House Margaritas" data-es="Margaritas de la Casa">House Margaritas</h3>
         <p data-en="Frozen and on the rocks, the reason our name is on the sign. Lime classic or ask for the flavor you want. Order it by the pitcher and share."
@@ -758,12 +770,11 @@ section{ position:relative; }
       </article>
 
       <!-- Micheladas -->
-      <article class="dcard reveal" data-delay="2" style="--c:var(--chili-rim)">
+      <article class="dcard reveal" data-delay="2">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M18 18 L46 18 L43 56 L21 56 Z" fill="none" stroke="#241B14" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M18 18 L46 18 L45.3 26 L18.7 26 Z" fill="#C8401F"/>
-          <path d="M21 30 L43 30 L40.5 53 L23.5 53 Z" fill="#E23B33" opacity="0.55"/>
-          <path d="M30 12 L34 12 L33 18 L31 18 Z" fill="#3FA45B"/>
+          <path d="M20 20 L44 20 L41 56 L23 56 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M18 20 L46 20" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M16 16 Q20 12 24 16 M28 16 Q32 12 36 16 M40 16 Q44 12 48 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <h3 data-en="Micheladas" data-es="Micheladas">Micheladas</h3>
         <p data-en="Tall, ice cold, with a thick chili-salt rim. The Rocky Point classic, done right. The first sip explains everything."
@@ -771,11 +782,10 @@ section{ position:relative; }
       </article>
 
       <!-- Cocktails -->
-      <article class="dcard reveal" data-delay="3" style="--c:var(--umbrella-orange)">
+      <article class="dcard reveal" data-delay="3">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M16 16 L48 16 L34 34 L34 52 L42 54 M30 52 L22 54 M30 34 L30 52" fill="none" stroke="#241B14" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="40" cy="24" r="3.5" fill="#F08A1D"/>
-          <path d="M40 24 L40 12 L48 9" fill="none" stroke="#3FA45B" stroke-width="2"/>
+          <path d="M14 16 L50 16 L34 36 L34 54 M26 54 L42 54" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40 24 C44 20 50 22 48 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <h3 data-en="Cocktails" data-es="C&oacute;cteles">Cocktails</h3>
         <p data-en="Whatever gets the night going. Tell the bar what you are in the mood for and we will pour it."
@@ -783,27 +793,23 @@ section{ position:relative; }
       </article>
 
       <!-- Cold Beer & Buckets -->
-      <article class="dcard reveal" data-delay="1" style="--c:var(--umbrella-green)">
+      <article class="dcard reveal" data-delay="1">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M14 24 L50 24 L45 56 L19 56 Z" fill="none" stroke="#241B14" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M14 24 L50 24 L48.8 32 L15.2 32 Z" fill="#3FA45B"/>
-          <rect x="22" y="12" width="6" height="14" rx="2" fill="#3FA45B"/>
-          <rect x="32" y="10" width="6" height="16" rx="2" fill="#F7C61E"/>
-          <rect x="42" y="13" width="6" height="13" rx="2" fill="#E23B33"/>
+          <path d="M16 20 L48 20 L43 54 L21 54 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M22 28 L42 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="28" cy="40" r="2" fill="currentColor"/><circle cx="36" cy="44" r="2" fill="currentColor"/>
         </svg>
-        <h3 data-en="Cold Beer &amp; Buckets" data-es="Cerveza Fr&iacute;a y Cubetas">Cold Beer &amp; Buckets</h3>
+        <h3 data-en="Cold Beer &amp; Buckets" data-es="Cerveza y Cubetas">Cold Beer &amp; Buckets</h3>
         <p data-en="Beer so cold it hurts, by the bottle or by the bucket on ice. Buckets are made for the table. Get one, then get another."
            data-es="Cerveza tan fr&iacute;a que duele, por botella o por cubeta en hielo. Las cubetas son para la mesa. Pide una, luego pide otra.">Beer so cold it hurts, by the bottle or by the bucket on ice. Buckets are made for the table. Get one, then get another.</p>
       </article>
 
       <!-- Tacos -->
-      <article class="dcard reveal" data-delay="2" style="--c:var(--umbrella-yellow)">
+      <article class="dcard reveal" data-delay="2">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M8 44 A24 24 0 0 1 56 44 Z" fill="#F7C61E" stroke="#241B14" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M14 44 A18 18 0 0 1 50 44 Z" fill="#3FA45B" opacity="0.6"/>
-          <circle cx="24" cy="40" r="3" fill="#E23B33"/>
-          <circle cx="34" cy="43" r="3" fill="#C8401F"/>
-          <circle cx="42" cy="40" r="3" fill="#F08A1D"/>
+          <path d="M10 40 A22 22 0 0 1 54 40 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M16 40 A16 16 0 0 1 48 40" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="24" cy="34" r="2" fill="currentColor"/><circle cx="32" cy="31" r="2" fill="currentColor"/><circle cx="40" cy="34" r="2" fill="currentColor"/>
         </svg>
         <h3 data-en="Tacos" data-es="Tacos">Tacos</h3>
         <p data-en="Hot off the grill, just like they should be. Order a round for the table and keep them coming."
@@ -811,13 +817,10 @@ section{ position:relative; }
       </article>
 
       <!-- Pizza -->
-      <article class="dcard reveal" data-delay="3" style="--c:var(--umbrella-teal)">
+      <article class="dcard reveal" data-delay="3">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M32 8 L56 52 L8 52 Z" fill="#F7C61E" stroke="#241B14" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M32 8 L52.5 45 L11.5 45 Z" fill="#F08A1D" opacity="0.45"/>
-          <circle cx="32" cy="30" r="3.4" fill="#E23B33"/>
-          <circle cx="24" cy="42" r="3.4" fill="#E23B33"/>
-          <circle cx="40" cy="42" r="3.4" fill="#E23B33"/>
+          <path d="M32 10 L54 50 Q32 60 10 50 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="32" cy="30" r="2.4" fill="currentColor"/><circle cx="24" cy="44" r="2.4" fill="currentColor"/><circle cx="40" cy="44" r="2.4" fill="currentColor"/>
         </svg>
         <h3 data-en="Pizza" data-es="Pizza">Pizza</h3>
         <p data-en="Yes, pizza on the roof. Perfect for sharing between rounds, and nobody ever says no."
@@ -825,12 +828,11 @@ section{ position:relative; }
       </article>
 
       <!-- Aguachile -->
-      <article class="dcard reveal" data-delay="1" style="--c:var(--umbrella-deep-blue)">
+      <article class="dcard reveal" data-delay="1">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M10 34 A22 10 0 0 0 54 34 Z" fill="#2A86C4" opacity="0.35" stroke="#241B14" stroke-width="2.4"/>
-          <path d="M40 22 C46 22 48 28 44 31 C40 34 32 33 28 30 C24 27 24 22 28 22 C26 26 36 28 40 26 C42 24 40 22 40 22 Z" fill="#E23B33"/>
-          <circle cx="20" cy="30" r="3" fill="#3FA45B"/>
-          <circle cx="32" cy="32" r="2.4" fill="#D7E27A"/>
+          <path d="M12 30 Q32 18 52 30 L48 36 Q32 30 16 36 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M16 42 Q32 50 48 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="26" cy="27" r="1.8" fill="currentColor"/><circle cx="38" cy="27" r="1.8" fill="currentColor"/>
         </svg>
         <h3 data-en="Aguachile" data-es="Aguachile">Aguachile</h3>
         <p data-en="Fresh, citrusy, with a kick. The one that goes hand in hand with a cold beer. Bring napkins."
@@ -838,11 +840,11 @@ section{ position:relative; }
       </article>
 
       <!-- Seafood & Grill -->
-      <article class="dcard reveal" data-delay="2" style="--c:var(--chili-rim)">
+      <article class="dcard reveal" data-delay="2">
         <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="34" r="22" fill="none" stroke="#241B14" stroke-width="2.4"/>
-          <path d="M32 22 C40 22 44 30 38 35 C32 40 22 38 20 32 C18 27 22 22 28 23 C25 28 36 31 39 28" fill="#F08A1D"/>
-          <path d="M14 14 L18 20 M22 12 L24 19 M30 11 L30 18" stroke="#E23B33" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M10 32 Q26 18 42 32 Q26 46 10 32 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M42 32 L54 24 L54 40 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          <circle cx="20" cy="30" r="1.8" fill="currentColor"/>
         </svg>
         <h3 data-en="Seafood &amp; Grill" data-es="Mariscos y Parrilla">Seafood &amp; Grill</h3>
         <p data-en="Fresh seafood and food off the grill, made for sharing with the whole crew. We are on the coast, after all."
@@ -850,47 +852,37 @@ section{ position:relative; }
       </article>
     </div>
 
-    <!-- [menu prices: add when owner confirms] -->
-    <p class="menu-flag reveal" data-en="Ask your server for today&rsquo;s prices and specials." data-es="Preg&uacute;ntale a tu mesero por los precios y especiales de hoy.">Ask your server for today&rsquo;s prices and specials.</p>
+    <!-- owner-confirm: add menu prices when the owner confirms them -->
+    <p class="menu-flag" data-en="Ask your server for today's prices and specials." data-es="Pregunta a tu mesero por los precios y especiales de hoy.">Ask your server for today's prices and specials.</p>
   </div>
 </section>
 
-<!-- divider: string-light garland -->
-<svg class="garland" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0 6 Q300 46 600 14 T1200 6" fill="none" stroke="currentColor" stroke-width="2.5"/>
-  <g class="g-bulbs"></g>
-</svg>
+<!-- sun divider -->
+<div class="sun-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+  <span class="rule right"></span>
+</div>
 
-<!-- =========================== THE NIGHTS (dusk band) =========================== -->
+<!-- =========================== THE NIGHTS =========================== -->
 <section class="band nights" id="nights">
-  <div class="beams" aria-hidden="true">
-    <span class="beam b1"></span>
-    <span class="beam b2"></span>
-    <span class="beam b3"></span>
-  </div>
-  <div class="mirror-ball" aria-hidden="true"></div>
-
   <div class="wrap">
-    <span class="kicker reveal" data-en="After Dark" data-es="Despu&eacute;s del Anochecer">After Dark</span>
-    <h2 class="h-sec reveal" data-delay="1" data-en="The Nights" data-es="Las Noches">The Nights</h2>
+    <span class="kicker reveal"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="The Nights" data-es="Las Noches">The Nights</span></span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="When the rest of town closes" data-es="Cuando el resto del pueblo cierra">When the rest of town closes</h2>
     <p class="lead reveal" data-delay="1"
        data-en="Every night up here has its own thing going. Here is what to expect."
        data-es="Cada noche aqu&iacute; arriba trae lo suyo. Esto es lo que te espera.">Every night up here has its own thing going. Here is what to expect.</p>
 
-    <!-- string lights, brighter against the dark -->
-    <div class="nights-strand" aria-hidden="true">
-      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-        <g class="strand-a">
-          <path class="wire" d="M0 8 Q300 40 600 14 T1200 8"/>
-          <g class="bulb"><circle cx="80" cy="18" r="5"/><circle cx="200" cy="24" r="5"/><circle cx="320" cy="26" r="5"/><circle cx="440" cy="23" r="5"/><circle cx="560" cy="18" r="5"/><circle cx="680" cy="17" r="5"/><circle cx="800" cy="22" r="5"/><circle cx="920" cy="24" r="5"/><circle cx="1040" cy="20" r="5"/><circle cx="1140" cy="14" r="5"/></g>
-        </g>
-      </svg>
+    <!-- thin string-light strand as warm atmosphere (the lights are real) -->
+    <div class="nights-strand reveal" aria-hidden="true">
+      <div class="strand-a" style="position:absolute; inset:0;"></div>
     </div>
 
     <div class="nights-grid">
       <article class="ncard reveal" data-delay="1">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="19" y="6" width="10" height="22" rx="5"/><path d="M13 22 a11 11 0 0 0 22 0"/><path d="M24 33 v8 M17 41 h14"/>
+        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="28" y="10" width="8" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          <path d="M20 32 A12 12 0 0 0 44 32 M32 44 L32 54 M24 54 L40 54" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
         </svg>
         <h3 data-en="Karaoke" data-es="Karaoke">Karaoke</h3>
         <p data-en="Grab the mic. Sing it loud, sing it bad, nobody cares. The whole terrace sings along anyway."
@@ -898,8 +890,10 @@ section{ position:relative; }
       </article>
 
       <article class="ncard reveal" data-delay="2">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 30 V12 l18 -4 v18"/><circle cx="14" cy="32" r="4"/><circle cx="32" cy="28" r="4"/>
+        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="20" cy="46" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          <circle cx="46" cy="42" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          <path d="M27 46 L27 16 L53 12 L53 42" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
         </svg>
         <h3 data-en="Music &amp; DJ" data-es="M&uacute;sica y DJ">Music &amp; DJ</h3>
         <p data-en="Good music all night, with the DJ keeping the floor moving. The kind of night that runs late on its own."
@@ -907,8 +901,10 @@ section{ position:relative; }
       </article>
 
       <article class="ncard reveal" data-delay="3">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="6" y="10" width="36" height="24" rx="3"/><path d="M16 40 h16 M24 34 v6"/>
+        <svg class="glyph" viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="10" y="14" width="44" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          <path d="M24 54 L40 54 M32 44 L32 54" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="32" cy="29" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
         </svg>
         <h3 data-en="The Game on the Big Screen" data-es="El Partido en Pantalla Grande">The Game on the Big Screen</h3>
         <p data-en="Big game on? It is on the big screen up here, with a michelada in your hand and the crew around you."
@@ -916,109 +912,123 @@ section{ position:relative; }
       </article>
     </div>
 
-    <blockquote class="nights-quote reveal" data-delay="2">
-      <span data-en="&ldquo;Excellent attention by the staff.&rdquo;" data-es="&ldquo;Excelente atenci&oacute;n del personal.&rdquo;">&ldquo;Excellent attention by the staff.&rdquo;</span>
-    </blockquote>
+    <div class="nights-extra">
+      <!-- remaining real aggregated guest quotes, attributed honestly, no fake names -->
+      <blockquote class="nights-quote reveal" data-delay="1">
+        <span data-en="&ldquo;Excellent attention by the staff.&rdquo;" data-es="&ldquo;Excelente atenci&oacute;n del personal.&rdquo;">&ldquo;Excellent attention by the staff.&rdquo;</span>
+        <span data-en="&nbsp;&ldquo;The food is very good.&rdquo;" data-es="&nbsp;&ldquo;La comida est&aacute; muy buena.&rdquo;">&nbsp;&ldquo;The food is very good.&rdquo;</span>
+        <cite class="qcite" data-en="From real guest reviews." data-es="De rese&ntilde;as reales de invitados.">From real guest reviews.</cite>
+      </blockquote>
 
-    <p class="nights-hours reveal" data-delay="2">
-      <span data-en="Open late, every night, til 3 AM." data-es="Abierto hasta tarde, todas las noches, hasta las 3 AM.">Open late, every night, til 3 AM.</span>
-      <a class="text-link" href="#visit" style="color:var(--string-gold)" data-en="See hours" data-es="Ver horarios">See hours</a>
-    </p>
-    <!-- [hours: confirm exact days/times with owner before publish] -->
-  </div>
-</section>
-
-<!-- divider: bunting stripe -->
-<div class="bunting" aria-hidden="true"></div>
-
-<!-- =========================== GALLERY (empty-state) =========================== -->
-<section class="band gallery" id="gallery">
-  <div class="wrap">
-    <span class="kicker reveal" data-en="The Roof in Photos" data-es="La Terraza en Fotos">The Roof in Photos</span>
-    <h2 class="h-sec reveal" data-delay="1" data-en="Saw it for yourself? Tag us." data-es="&iquest;Ya lo viviste? Etiqu&eacute;tanos.">Saw it for yourself? Tag us.</h2>
-    <p class="lead reveal" data-delay="1">
-      <span data-en="Post your night under the umbrellas and tag" data-es="Sube tu noche bajo los paraguas y etiqueta a">Post your night under the umbrellas and tag</span>
-      <a class="text-link" href="https://instagram.com/margaritas_13" target="_blank" rel="noopener">@margaritas_13</a>.
-    </p>
-
-    <!-- Empty-state grid. Each tile is a finished frame; dropping a real photo in needs zero layout change. -->
-    <!-- [gallery: swap empty tiles for real photos when owner shares camera roll] -->
-    <div class="gallery-grid">
-      <div class="tile t1 reveal" data-delay="1">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="14" width="36" height="26" rx="4"/><circle cx="24" cy="27" r="7"/><path d="M16 14 l4 -5 h8 l4 5"/></svg>
-        <small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small>
-      </div>
-      <div class="tile t2 reveal" data-delay="2">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6 C10 6 4 18 3 23 C12 19 18 20 24 23 C30 20 36 19 45 23 C44 18 38 6 24 6Z"/><path d="M24 23 v17 M24 40 a4 4 0 0 0 4 -4"/></svg>
-        <small data-en="Under the umbrellas" data-es="Bajo los paraguas">Under the umbrellas</small>
-      </div>
-      <div class="tile t3 reveal" data-delay="3">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="14" width="36" height="26" rx="4"/><circle cx="24" cy="27" r="7"/><path d="M16 14 l4 -5 h8 l4 5"/></svg>
-        <small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small>
-      </div>
-      <div class="tile t4 reveal" data-delay="1">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6 C10 6 4 18 3 23 C12 19 18 20 24 23 C30 20 36 19 45 23 C44 18 38 6 24 6Z"/><path d="M24 23 v17 M24 40 a4 4 0 0 0 4 -4"/></svg>
-        <small data-en="Karaoke nights" data-es="Noches de karaoke">Karaoke nights</small>
-      </div>
-      <div class="tile t5 reveal" data-delay="2">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="14" width="36" height="26" rx="4"/><circle cx="24" cy="27" r="7"/><path d="M16 14 l4 -5 h8 l4 5"/></svg>
-        <small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small>
-      </div>
-      <div class="tile t6 reveal" data-delay="3">
-        <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6 C10 6 4 18 3 23 C12 19 18 20 24 23 C30 20 36 19 45 23 C44 18 38 6 24 6Z"/><path d="M24 23 v17 M24 40 a4 4 0 0 0 4 -4"/></svg>
-        <small data-en="The whole crew" data-es="Toda la banda">The whole crew</small>
-      </div>
+      <p class="nights-hours reveal" data-delay="2">
+        <svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
+        <span data-en="We go til 3 AM. When the rest of town closes, the roof is still on." data-es="Le seguimos hasta las 3 AM. Cuando el resto del pueblo cierra, la terraza sigue encendida.">We go til 3 AM. When the rest of town closes, the roof is still on.</span>
+        <a class="text-link" href="#visit" data-en="See hours" data-es="Ver horarios">See hours</a>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- divider: string-light garland -->
-<svg class="garland" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0 6 Q300 46 600 14 T1200 6" fill="none" stroke="currentColor" stroke-width="2.5"/>
-  <g class="g-bulbs"></g>
-</svg>
+<!-- sun divider -->
+<div class="sun-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+  <span class="rule right"></span>
+</div>
+
+<!-- =========================== GALLERY =========================== -->
+<section class="band gallery" id="gallery">
+  <div class="wrap">
+    <span class="kicker reveal"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="The Roof" data-es="La Terraza">The Roof</span></span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="See it for yourself" data-es="Compru&eacute;balo t&uacute; mismo">See it for yourself</h2>
+    <p class="lead gallery-intro reveal" data-delay="1">
+      <span data-en="Saw it for yourself? Tag us." data-es="&iquest;Ya lo viste? Etiqu&eacute;tanos.">Saw it for yourself? Tag us.</span>
+      <a class="text-link" href="https://instagram.com/margaritas_13" target="_blank" rel="noopener">@margaritas_13</a>
+    </p>
+
+    <div class="gallery-grid">
+      <!-- tile 1: the real facade photo -->
+      <figure class="tile real reveal" data-delay="1">
+        <picture>
+          <source srcset="assets/hero-facade.webp" type="image/webp" />
+          <img src="assets/hero-facade.jpg" width="702" height="527" data-en="The Margaritas Terraza Bar storefront on Calle 13 in Puerto Penasco" data-es="La fachada de Margaritas Terraza Bar en la Calle 13 en Puerto Pe&ntilde;asco" alt="The Margaritas Terraza Bar storefront on Calle 13 in Puerto Penasco" loading="lazy" />
+        </picture>
+        <figcaption class="t-cap" data-en="Our rooftop on Calle 13" data-es="Nuestra terraza en la Calle 13">Our rooftop on Calle 13</figcaption>
+      </figure>
+
+      <!-- empty-state tiles invite the owner camera roll. Drop a real <img> in to swap with zero layout change. -->
+      <!-- [gallery: swap empty tiles for real photos when owner shares camera roll] -->
+      <div class="tile empty reveal" data-delay="2"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
+      <div class="tile empty reveal" data-delay="3"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
+      <div class="tile empty reveal" data-delay="1"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
+      <div class="tile empty reveal" data-delay="2"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
+      <div class="tile empty reveal" data-delay="3"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- sun divider -->
+<div class="sun-divider" aria-hidden="true">
+  <span class="rule"></span>
+  <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+  <span class="rule right"></span>
+</div>
 
 <!-- =========================== VISIT / HOURS / MAP =========================== -->
 <section class="band visit" id="visit">
   <div class="wrap">
-    <span class="kicker reveal" data-en="Come On Up" data-es="Sube a Vernos">Come On Up</span>
-    <h2 class="h-sec reveal" data-delay="1" data-en="Visit" data-es="Vis&iacute;tanos">Visit</h2>
+    <span class="kicker reveal"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><span data-en="Visit" data-es="Vis&iacute;tanos">Visit</span></span>
+    <h2 class="h-sec reveal" data-delay="1" data-en="Come find us" data-es="Ven a encontrarnos">Come find us</h2>
 
     <div class="visit-grid">
       <div class="reveal" data-delay="1">
-        <div class="info-block">
-          <h3 data-en="Hours" data-es="Horarios">Hours</h3>
-          <p data-en="Open late, til 3 AM. Hours can shift, so give us a call to confirm before you head up."
-             data-es="Abierto hasta tarde, hasta las 3 AM. Los horarios pueden cambiar, as&iacute; que m&aacute;rcanos para confirmar antes de subir.">Open late, til 3 AM. Hours can shift, so give us a call to confirm before you head up.</p>
-          <!-- [hours: confirm exact days/times with owner before publish] RestaurantGuru lists daily 12:00 to 03:00; an aggregator lists Tue to Sun 7 PM to 3 AM. -->
-          <p class="hours-note" data-en="Hours confirmed soon." data-es="Horarios por confirmar pronto.">Hours confirmed soon.</p>
-        </div>
+        <div class="info-list">
+          <div class="info-row">
+            <svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
+            <div>
+              <h3 data-en="Hours" data-es="Horario">Hours</h3>
+              <!-- owner-confirm: confirm exact days/times with owner before publish. Honest line only, no precise weekly grid. -->
+              <p data-en="Open late, til 3 AM. Hours can shift, so give us a call to confirm before you head up."
+                 data-es="Abierto hasta tarde, hasta las 3 AM. Los horarios pueden cambiar, as&iacute; que m&aacute;rcanos para confirmar antes de subir.">Open late, til 3 AM. Hours can shift, so give us a call to confirm before you head up.</p>
+              <p class="hours-note" data-en="Typically open late into the night, around 12:00 to 03:00. Call ahead to be sure." data-es="Normalmente abierto hasta entrada la noche, alrededor de las 12:00 a 03:00. Llama antes para asegurarte.">Typically open late into the night, around 12:00 to 03:00. Call ahead to be sure.</p>
+            </div>
+          </div>
 
-        <div class="info-block">
-          <h3 data-en="Find us" data-es="D&oacute;nde estamos">Find us</h3>
-          <p>C. Miguel Hidalgo y Costilla 95, Ferrocarrilera, 83555 Puerto Pe&ntilde;asco, Sonora, M&eacute;xico</p>
-        </div>
+          <div class="info-row">
+            <svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
+            <div>
+              <h3 data-en="Find us" data-es="D&oacute;nde estamos">Find us</h3>
+              <p>C. Miguel Hidalgo y Costilla 95, Ferrocarrilera, 83555 Puerto Pe&ntilde;asco, Sonora, M&eacute;xico</p>
+            </div>
+          </div>
 
-        <div class="info-block">
-          <h3 data-en="Call us" data-es="Ll&aacute;manos">Call us</h3>
-          <a class="text-link" href="tel:+526383840230">+52 638 384 0230</a>
-        </div>
+          <div class="info-row">
+            <svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
+            <div>
+              <h3 data-en="Call us" data-es="Ll&aacute;manos">Call us</h3>
+              <p><a class="text-link" href="tel:+526383840230">+52 638 384 0230</a></p>
+            </div>
+          </div>
 
-        <div class="info-block">
-          <h3 data-en="Follow the party" data-es="Sigue la fiesta">Follow the party</h3>
-          <div class="social-row">
-            <a href="https://instagram.com/margaritas_13" target="_blank" rel="noopener" aria-label="Instagram @margaritas_13">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-              <span>@margaritas_13</span>
-            </a>
-            <a href="https://facebook.com/molcajete.loco" target="_blank" rel="noopener" aria-label="Facebook Margaritas Terrazas Bar">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
-              <span>Facebook</span>
-            </a>
+          <div class="info-row">
+            <svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg>
+            <div>
+              <h3 data-en="Follow the party" data-es="Sigue la fiesta">Follow the party</h3>
+              <div class="social-row">
+                <a href="https://instagram.com/margaritas_13" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                  <span>@margaritas_13</span>
+                </a>
+                <a href="https://www.facebook.com/search/top?q=Margaritas%20Terrazas%20Bar%20Puerto%20Penasco" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
+                  <span>Facebook</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Reserve form: spec demo, non-functional. Friendly inline confirmation only, no backend. -->
+        <!-- Reserve form (spec demo, non-functional). Friendly inline confirmation, no backend. -->
         <div class="reserve">
           <h3 data-en="Save a table" data-es="Aparta tu mesa">Save a table</h3>
           <p class="helper" data-en="Tell us when you are coming up and how many. We will keep a spot under the umbrellas."
@@ -1030,7 +1040,7 @@ section{ position:relative; }
             </div>
             <div>
               <label for="rf-phone" data-en="Phone" data-es="Tel&eacute;fono">Phone</label>
-              <input id="rf-phone" name="phone" type="tel" autocomplete="tel" data-en-ph="Your phone" data-es-ph="Tu tel&eacute;fono" placeholder="Your phone" />
+              <input id="rf-phone" name="phone" type="tel" autocomplete="tel" data-en-ph="Best number to reach you" data-es-ph="Mejor n&uacute;mero para localizarte" placeholder="Best number to reach you" />
             </div>
             <div>
               <label for="rf-when" data-en="When" data-es="Cu&aacute;ndo">When</label>
@@ -1038,10 +1048,10 @@ section{ position:relative; }
             </div>
             <div>
               <label for="rf-size" data-en="How many" data-es="Cu&aacute;ntos">How many</label>
-              <input id="rf-size" name="size" type="number" min="1" inputmode="numeric" data-en-ph="Party size" data-es-ph="Personas" placeholder="Party size" />
+              <input id="rf-size" name="size" type="text" inputmode="numeric" data-en-ph="Size of your crew" data-es-ph="Tama&ntilde;o de tu banda" placeholder="Size of your crew" />
             </div>
             <div class="full">
-              <button class="btn btn-primary" type="submit" data-en="Save a table" data-es="Aparta tu mesa">Save a table</button>
+              <button class="btn btn-primary" type="submit" data-en="Save my table" data-es="Apartar mi mesa">Save my table</button>
             </div>
           </form>
           <div class="reserve-confirm" id="reserveConfirm" role="status" aria-live="polite"
@@ -1050,31 +1060,37 @@ section{ position:relative; }
         </div>
       </div>
 
-      <!-- Google Maps embed on the real address -->
-      <div class="map-frame reveal tilt" data-delay="2">
-        <iframe
-          title="Map to Margaritas Terraza Bar, Puerto Penasco"
-          src="https://www.google.com/maps?q=C.%20Miguel%20Hidalgo%20y%20Costilla%2095%2C%20Ferrocarrilera%2C%2083555%20Puerto%20Pe%C3%B1asco%2C%20Sonora%2C%20Mexico&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="reveal" data-delay="2">
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=C.%20Miguel%20Hidalgo%20y%20Costilla%2095%2C%20Ferrocarrilera%2C%2083555%20Puerto%20Pe%C3%B1asco%2C%20Sonora%2C%20Mexico&output=embed&z=16"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Margaritas Terraza Bar location on the map"
+            data-en-title="Margaritas Terraza Bar location on the map"
+            data-es-title="Ubicaci&oacute;n de Margaritas Terraza Bar en el mapa">
+          </iframe>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-</main>
-
 <!-- =========================== FOOTER =========================== -->
 <footer class="footer">
-  <!-- string-light garland strung across the top edge -->
-  <svg class="garland footer-garland" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 6 Q300 46 600 14 T1200 6" fill="none" stroke="currentColor" stroke-width="2.5"/>
-    <g class="g-bulbs"></g>
-  </svg>
-
   <div class="wrap">
-    <!-- [asset slot: real red roundel logo.png goes here, supplied by owner. Placeholder token in use. Do NOT fabricate the Aztec-figure art.] -->
-    <span class="roundel footer-roundel" aria-hidden="true"><span>MT</span></span>
-    <div class="footer-word">Margaritas<small>Terraza Bar</small></div>
+    <div class="footer-hairline"></div>
+    <div class="footer-suns" aria-hidden="true">
+      <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+      <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+      <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+      <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+      <svg class="sb" viewBox="0 0 24 24"><use href="#sunburst"/></svg>
+    </div>
+
+    <span class="logo-chip footer-logo"><img src="assets/logo.png" width="99" height="100" data-en="Margaritas Terraza Bar logo" data-es="Logo de Margaritas Terraza Bar" alt="Margaritas Terraza Bar logo" /></span>
+    <p class="footer-word">margaritas<small>terraza bar</small></p>
     <p class="footer-tag" data-en="See you up on the roof." data-es="Nos vemos en la terraza.">See you up on the roof.</p>
 
     <div class="footer-social">
@@ -1082,124 +1098,44 @@ section{ position:relative; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         <span>@margaritas_13</span>
       </a>
-      <a href="https://facebook.com/molcajete.loco" target="_blank" rel="noopener">
+      <a href="https://www.facebook.com/search/top?q=Margaritas%20Terrazas%20Bar%20Puerto%20Penasco" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.6.2 15.6 0 14.5 0 12 0 10.5 1.4 10.5 4.1V6H8v3h2.5v9H14z"/></svg>
         <span>Facebook</span>
       </a>
     </div>
 
-    <p class="footer-addr">C. Miguel Hidalgo y Costilla 95, Ferrocarrilera, 83555 Puerto Pe&ntilde;asco, Sonora, M&eacute;xico &middot; <a class="text-link" style="color:var(--string-gold)" href="tel:+526383840230">+52 638 384 0230</a></p>
+    <p class="footer-addr">C. Miguel Hidalgo y Costilla 95, Ferrocarrilera, 83555 Puerto Pe&ntilde;asco, Sonora, M&eacute;xico &middot; <a href="tel:+526383840230">+52 638 384 0230</a></p>
 
     <p class="footer-fine"
        data-en="Margaritas Terraza Bar, Puerto Penasco, Sonora. Drink responsibly. Please enjoy with ID, 18+."
        data-es="Margaritas Terraza Bar, Puerto Pe&ntilde;asco, Sonora. Bebe responsablemente. Disfruta con identificaci&oacute;n, mayores de 18.">Margaritas Terraza Bar, Puerto Penasco, Sonora. Drink responsibly. Please enjoy with ID, 18+.</p>
 
-    <p class="footer-credit">&copy; <span id="year"></span> Margaritas Terraza Bar &middot; <span data-en="site by" data-es="sitio por">site by</span> <a class="text-link" style="color:var(--string-gold)" href="#top">NeonFrame</a></p>
+    <p class="footer-credit">&copy; <span id="year"></span> Margaritas Terraza Bar &middot; <span data-en="site by" data-es="sitio por">site by</span> <a href="#top">NeonFrame</a></p>
   </div>
-
-  <!-- signature umbrella-spectrum stripe along the very bottom -->
-  <div class="bunting footer-stripe" aria-hidden="true"></div>
 </footer>
+
+</main>
 
 <script>
 (function(){
   "use strict";
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Umbrella canopy: clone a template across staggered rows ---------- */
-  // Colors with reds + yellows weighted slightly more frequent.
-  var COLORS = [
-    "#E23B33","#F7C61E","#F08A1D","#E23B33","#2A86C4",
-    "#F7C61E","#3FA45B","#E23B33","#264C9B","#F7C61E",
-    "#F08A1D","#E23B33","#2A86C4","#F7C61E","#3FA45B","#264C9B"
-  ];
-  // Shade helper for the underside gores (darker variant).
-  function shade(hex, amt){
-    var n = parseInt(hex.slice(1),16);
-    var r = Math.max(0, Math.min(255, ((n>>16)&255) + amt));
-    var g = Math.max(0, Math.min(255, ((n>>8)&255) + amt));
-    var b = Math.max(0, Math.min(255, (n&255) + amt));
-    return "rgb("+r+","+g+","+b+")";
-  }
-  // Build a single umbrella as an SVG group string (half dome, gores, ribs, finial).
-  // We look UP at it: underside is darkened toward the bottom edge.
-  function umbrella(color){
-    var dark = shade(color,-46);
-    var mid  = shade(color,-22);
-    return ''+
-      '<g>'+
-        '<path d="M0 0 C-26 0 -42 18 -46 30 C-30 24 -18 24 0 30 Z" fill="'+color+'"/>'+
-        '<path d="M0 0 C26 0 42 18 46 30 C30 24 18 24 0 30 Z" fill="'+mid+'"/>'+
-        '<path d="M0 0 C-14 2 -22 16 -23 30 C-12 26 -6 26 0 30 Z" fill="'+shade(color,18)+'"/>'+
-        '<path d="M0 0 C14 2 22 16 23 30 C12 26 6 26 0 30 Z" fill="'+color+'"/>'+
-        '<path d="M-46 30 C-30 24 -18 24 0 30 C18 24 30 24 46 30 L46 33 C30 27 18 27 0 33 C-18 27 -30 27 -46 33 Z" fill="'+dark+'" opacity="0.55"/>'+
-        '<path d="M0 0 L-30 27 M0 0 L0 31 M0 0 L30 27" stroke="'+dark+'" stroke-width="1" opacity="0.45" fill="none"/>'+
-        '<circle cx="0" cy="-2" r="2.4" fill="#E8B04B"/>'+
-      '</g>';
-  }
-  function buildCanopy(){
-    var host = document.getElementById("canopy");
+  /* ---------- Nights string-light strand (bulbs along a shallow catenary) ---------- */
+  (function buildStrand(){
+    var host = document.querySelector(".nights-strand .strand-a");
     if(!host) return;
-    var W = 1200, H = 320;
-    // 3 staggered rows; back rows higher and smaller (depth).
-    var rows = [
-      { y: 40,  scale: 1.18, step: 132, offset: -40, cls:"row-front" },
-      { y: 4,   scale: 0.98, step: 120, offset: 22,  cls:"row-mid" },
-      { y: -24, scale: 0.82, step: 110, offset: -30, cls:"row-back" }
-    ];
-    var svg = '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">';
-    var ci = 0, prev = -1;
-    for(var r = rows.length-1; r>=0; r--){   // back-to-front so front overlaps
-      var row = rows[r];
-      var g = '<g class="'+row.cls+'">';
-      for(var x = row.offset - row.step; x < W + row.step; x += row.step){
-        var idx = ci % COLORS.length;
-        if(COLORS[idx] === prev){ idx = (idx+1) % COLORS.length; } // no identical adjacent
-        var color = COLORS[idx];
-        prev = color; ci++;
-        var rot = ((ci*37)%9) - 4;                      // small deterministic rotation -4..4
-        var s = row.scale * (0.96 + ((ci*13)%9)/100);   // slight size variance
-        g += '<g transform="translate('+x.toFixed(1)+','+row.y+') rotate('+rot+') scale('+s.toFixed(3)+')">'+umbrella(color)+'</g>';
-      }
-      g += '</g>';
-      svg += g;
-    }
-    svg += '</svg>';
-    host.innerHTML = svg;
-  }
-  buildCanopy();
-
-  /* ---------- Hero string-light strands (bulbs along a catenary) ---------- */
-  function strand(targetSel, bulbCount){
-    var host = document.querySelector(targetSel);
-    if(!host) return;
-    var W = 1200, H = 120;
-    var pathD = "M0 6 Q300 70 600 26 T1200 6";
+    var W = 1200, H = 38, n = 16;
+    var pathD = "M0 6 Q300 44 600 18 T1200 6";
     var bulbs = "";
-    for(var i=0;i<bulbCount;i++){
-      var t = (i+0.5)/bulbCount;
+    for(var i=0;i<n;i++){
+      var t = (i+0.5)/n;
       var x = t*W;
-      var y = 6 + Math.sin(t*Math.PI)*52;   // shallow catenary, lowest in the middle
-      bulbs += '<circle class="bulb" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="5"/>';
+      var y = 6 + Math.sin(t*Math.PI)*30;
+      bulbs += '<circle class="bulb" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4"/>';
     }
     host.innerHTML = '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">'+
       '<path class="wire" d="'+pathD+'"/>'+ bulbs +'</svg>';
-  }
-  strand(".strand-a", 14);
-  strand(".strand-b", 12);
-
-  /* ---------- Divider garlands: hang bulbs from each swag path ---------- */
-  (function fillGarlands(){
-    var groups = document.querySelectorAll(".garland .g-bulbs");
-    Array.prototype.forEach.call(groups, function(g){
-      var n = 7, W = 1200, html = "";
-      for(var i=0;i<n;i++){
-        var t = (i+0.5)/n, x = t*W;
-        var y = 6 + Math.sin(t*Math.PI)*28;   // follow the swag dip
-        html += '<circle class="bulb" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="5"/>';
-      }
-      g.innerHTML = html;
-    });
   })();
 
   /* ---------- Loader ---------- */
@@ -1212,17 +1148,30 @@ section{ position:relative; }
     setTimeout(hide, 1500); // hard cap
   })();
 
-  /* ---------- Bilingual EN/ES toggle ---------- */
+  /* ---------- Bilingual EN/ES toggle ----------
+     Swaps textContent via innerHTML (so accent entities render), input placeholders
+     via data-*-ph, aria-labels/titles via data-*-label / data-*-title, sets
+     document.documentElement.lang, persists in localStorage "lang", default EN. */
   var STORAGE_KEY = "lang";
   function applyLang(lang){
     document.documentElement.lang = lang;
     Array.prototype.forEach.call(document.querySelectorAll("[data-en],[data-es]"), function(el){
       var v = el.getAttribute("data-"+lang);
-      if(v !== null) el.innerHTML = v;
+      if(v === null) return;
+      if(el.tagName === "IMG"){ el.setAttribute("alt", v); }
+      else { el.innerHTML = v; }
     });
     Array.prototype.forEach.call(document.querySelectorAll("[data-en-ph],[data-es-ph]"), function(el){
       var v = el.getAttribute("data-"+lang+"-ph");
       if(v !== null) el.setAttribute("placeholder", v);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en-label],[data-es-label]"), function(el){
+      var v = el.getAttribute("data-"+lang+"-label");
+      if(v !== null) el.setAttribute("aria-label", v);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-en-title],[data-es-title]"), function(el){
+      var v = el.getAttribute("data-"+lang+"-title");
+      if(v !== null) el.setAttribute("title", v);
     });
     Array.prototype.forEach.call(document.querySelectorAll(".lang-toggle"), function(t){
       Array.prototype.forEach.call(t.querySelectorAll(".lt-code"), function(c){
