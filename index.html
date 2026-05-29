@@ -729,13 +729,10 @@ section{ position:relative; }
         </div>
       </div>
 
-      <!-- Wood-framed panel: a tight crop of the real facade (terrace railing + string lights). -->
-      <div class="terrace-panel reveal" data-delay="2" role="img" data-en-label="A close look at the rooftop terrace railing and string lights" data-es-label="Un acercamiento al barandal de la terraza y las lucecitas" aria-label="A close look at the rooftop terrace railing and string lights">
-        <picture>
-          <source srcset="assets/hero-facade.webp" type="image/webp" />
-          <img src="assets/hero-facade.jpg" width="702" height="527" alt="" loading="lazy" />
-        </picture>
-        <span class="tp-cap" data-en="Up on the terrace, lights on" data-es="Arriba en la terraza, con las luces encendidas">Up on the terrace, lights on</span>
+      <!-- Wood-framed panel: a real night up on the terrace, a full crew at the bar. -->
+      <div class="terrace-panel reveal" data-delay="2" role="img" data-en-label="A full crew enjoying drinks and food at the rooftop bar" data-es-label="Una banda disfrutando bebidas y comida en la terraza" aria-label="A full crew enjoying drinks and food at the rooftop bar">
+        <img src="assets/photos/crowd.jpg" width="1118" height="1400" alt="" loading="lazy" />
+        <span class="tp-cap" data-en="Good crew, good night" data-es="Buena banda, buena noche">Good crew, good night</span>
       </div>
     </div>
   </div>
@@ -956,13 +953,38 @@ section{ position:relative; }
         <figcaption class="t-cap" data-en="Our rooftop on Calle 13" data-es="Nuestra terraza en la Calle 13">Our rooftop on Calle 13</figcaption>
       </figure>
 
-      <!-- empty-state tiles invite the owner camera roll. Drop a real <img> in to swap with zero layout change. -->
-      <!-- [gallery: swap empty tiles for real photos when owner shares camera roll] -->
-      <div class="tile empty reveal" data-delay="2"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
-      <div class="tile empty reveal" data-delay="3"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
-      <div class="tile empty reveal" data-delay="1"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
-      <div class="tile empty reveal" data-delay="2"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
-      <div class="tile empty reveal" data-delay="3"><svg class="sb" viewBox="0 0 24 24" aria-hidden="true"><use href="#sunburst"/></svg><small data-en="Your photo here" data-es="Tu foto aqu&iacute;">Your photo here</small></div>
+      <figure class="tile real reveal" data-delay="2">
+        <img src="assets/photos/exterior-night.jpg" width="1106" height="1400" data-en="The neon-lit stairway up to the rooftop terrace at night" data-es="La escalera iluminada con ne&oacute;n hacia la terraza por la noche" alt="The neon-lit stairway up to the rooftop terrace at night" loading="lazy" />
+        <figcaption class="t-cap" data-en="The stairs up to the roof" data-es="Las escaleras a la terraza">The stairs up to the roof</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="3">
+        <img src="assets/photos/pizza.jpg" width="1320" height="1245" data-en="A fresh pizza loaded with pepperoni, sausage and peppers on a wood board" data-es="Una pizza reci&eacute;n hecha con pepperoni, salchicha y chile en tabla de madera" alt="A fresh pizza loaded with pepperoni, sausage and peppers on a wood board" loading="lazy" />
+        <figcaption class="t-cap" data-en="Pizza on the roof" data-es="Pizza en la terraza">Pizza on the roof</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="1">
+        <img src="assets/photos/aguachile.jpg" width="1127" height="1400" data-en="Fresh aguachile tostadas with lime and a cold Corona" data-es="Tostadas de aguachile fresco con lim&oacute;n y una Corona bien fr&iacute;a" alt="Fresh aguachile tostadas with lime and a cold Corona" loading="lazy" />
+        <figcaption class="t-cap" data-en="Aguachile by the sea" data-es="Aguachile junto al mar">Aguachile by the sea</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="2">
+        <img src="assets/photos/beers.jpg" width="1320" height="975" data-en="A lineup of ice cold Mexican beers across the bar" data-es="Una fila de cervezas mexicanas bien heladas en la barra" alt="A lineup of ice cold Mexican beers across the bar" loading="lazy" />
+        <figcaption class="t-cap" data-en="Cold ones, your pick" data-es="Bien fr&iacute;as, t&uacute; escoges">Cold ones, your pick</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="3">
+        <img src="assets/photos/birria.jpg" width="1050" height="1400" data-en="A birria taco being dipped into rich red consomme" data-es="Un taco de birria remojado en su consom&eacute; rojo" alt="A birria taco being dipped into rich red consomme" loading="lazy" />
+        <figcaption class="t-cap" data-en="Birria, with its consomme" data-es="Birria, con su consom&eacute;">Birria, with its consomme</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="1">
+        <img src="assets/photos/burger.jpg" width="1080" height="1080" data-en="A bacon cheeseburger with a pile of fries and cold beers" data-es="Una hamburguesa con tocino, papas y cervezas bien fr&iacute;as" alt="A bacon cheeseburger with a pile of fries and cold beers" loading="lazy" />
+        <figcaption class="t-cap" data-en="Burger and fries, late night" data-es="Hamburguesa y papas, de noche">Burger and fries, late night</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="2">
+        <img src="assets/photos/wings.jpg" width="1080" height="1080" data-en="Boneless and traditional wings with celery and carrots" data-es="Alitas boneless y tradicionales con apio y zanahoria" alt="Boneless and traditional wings with celery and carrots" loading="lazy" />
+        <figcaption class="t-cap" data-en="Wings and boneless" data-es="Alitas y boneless">Wings and boneless</figcaption>
+      </figure>
+      <figure class="tile real reveal" data-delay="3">
+        <img src="assets/photos/burrito.jpg" width="1050" height="1400" data-en="A hefty burrito stuffed with meat, cut open to show the filling" data-es="Un burrito bien servido relleno de carne, abierto a la mitad" alt="A hefty burrito stuffed with meat, cut open to show the filling" loading="lazy" />
+        <figcaption class="t-cap" data-en="Loaded burritos" data-es="Burritos bien servidos">Loaded burritos</figcaption>
+      </figure>
     </div>
   </div>
 </section>
